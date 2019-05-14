@@ -11,4 +11,19 @@ const convertScoreToNumber = (scoreString) => {
   return Number(scoreString.replace(/,/g, ''))
 }
 
-module.exports = { convertScoreToNumber }
+/**
+ * Rank the players by their scores
+ *
+ * @param results
+ * @returns [object]: the sorted scores, in descending order
+ */
+const rankPlayers = (results) => {
+  return results.sort((a, b) => {
+    return Object.values(b)[0].result.score > Object.values(a)[0].result.score
+  })
+}
+
+module.exports = {
+  convertScoreToNumber,
+  rankPlayers
+}

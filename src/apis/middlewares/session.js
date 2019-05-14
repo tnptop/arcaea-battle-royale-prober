@@ -1,6 +1,8 @@
 'use strict'
 
 const db = require('../../db')
+const { probe } = require('../../helpers/probe')
+const { rankPlayers } = require('../../helpers/convert')
 
 /**
  * GET /sessions
@@ -57,9 +59,18 @@ const newSession = (req, res, next) => {
  * @param res: express response object
  * @param next: the next middleware in request chain
  */
-const updateSession = (req, res, next) => {
+const updateSession = async (req, res, next) => {
   const sessionId = req.params.sessionId
-  let payload = {}
+  const { players } = db.get(sessionId)
+  const playerIds = Object.keys(players).filter((playerId) => {
+    // retrieve only those who are still in the match
+    return players[playerId].trackLost === false
+  })
+  const rankedResults = rankPlayers(await probe(playerIds))
+  const payload = rankedResults.reduce((payload, result, index) => {
+    result[Object.keys(result)[0]].trackLost = index === rankedResults.length - 1
+    return Object.assign(payload, result)
+  }, {})
   const updatedSession = db.update(sessionId, payload)
 
   res.status(200).json({

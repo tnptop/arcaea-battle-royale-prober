@@ -27,6 +27,7 @@ const setProbers = async (playerIds) => {
  * @returns {Promise<{title: string, score: number}>}: the song title and the player score
  */
 const probeLatestPlay = async (playerId, page) => {
+  console.log('probing:', playerId)
   // navigate to the prober & query the data by playerId
   await page.goto(url)
   await page.type('#user-code', playerId)
@@ -34,13 +35,24 @@ const probeLatestPlay = async (playerId, page) => {
   await page.waitForSelector('#user-info div.score-item .song-score')
 
   // extract song title and score from the page
-  const title = await page.evaluate(() => document.querySelector('#user-info div.score-item .song-title').innerHTML)
-  const score = await page.evaluate(() => document.querySelector('#user-info div.score-item .song-score').innerHTML)
+  const title = await page.evaluate(
+    () => document.querySelector('#user-info div.score-item .song-title').innerHTML
+  )
+  const score = await page.evaluate(
+    () => document.querySelector('#user-info div.score-item .song-score').innerHTML
+  )
 
   // close the page to unblock the process
   await page.close()
 
-  return { title, score: convert.convertScoreToNumber(score) }
+  return {
+    [playerId]: {
+      result: {
+        title,
+        score: convert.convertScoreToNumber(score)
+      }
+    }
+  }
 }
 
 /**

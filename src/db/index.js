@@ -1,8 +1,10 @@
 'use strict'
 
 const uuidv4 = require('uuid/v4')
+const fs = require('fs')
 const model = require('./model')
 const db = model()
+const dbPath = `${process.cwd()}/sessions.json`
 
 /**
  * List all sessions saved in the database
@@ -40,6 +42,8 @@ const create = (playerIds) => {
     }
   })
 
+  fs.writeFileSync(dbPath, JSON.stringify(db), { encoding: 'utf8', flag: 'w' })
+
   return [sessionId, db[sessionId]]
 }
 
@@ -62,6 +66,8 @@ const update = (sessionId, payload) => {
     db[sessionId].players[playerId].trackLost = payload[playerId].trackLost
     db[sessionId].players[playerId].results.push(payload[playerId].result)
   })
+
+  fs.writeFileSync(dbPath, JSON.stringify(db), { encoding: 'utf8', flag: 'w' })
 
   return db[sessionId]
 }

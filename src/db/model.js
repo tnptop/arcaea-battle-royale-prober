@@ -1,7 +1,6 @@
 'use strict'
 
 const fs = require('fs')
-const fsPromises = fs.promises
 const dbPath = `${process.cwd()}/sessions.json`
 
 /**
@@ -31,14 +30,14 @@ const dbPath = `${process.cwd()}/sessions.json`
  * }
  */
 
-module.exports = async () => {
+module.exports = () => {
   let db = {}
 
   try {
-    await fsPromises.access(dbPath)
+    fs.accessSync(dbPath)
     db = require(dbPath)
   } catch (e) {
-    await fsPromises.writeFile(dbPath, JSON.stringify(db), 'utf8')
+    fs.writeFileSync(dbPath, JSON.stringify(db), 'utf8')
   }
 
   return db
