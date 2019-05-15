@@ -82,7 +82,12 @@ startRound = () => {
 
   // clear the results of players who have not track lost
   players.forEach((playerId) => {
-    updatePlayerRow(playerId, { name: $(`tr.${playerId} th`).html() }, false)
+    updatePlayerRow(
+      getLatestPlay(playerId,{
+          name: $(`tr.${playerId} th`).html(),
+          recent_score: [{}]
+        },false)
+    )
   })
 
   // convert button to allow ranking
@@ -288,7 +293,6 @@ generatePlayerRow = (playerInfo) => {
  * @param playerInfo: the player info from getLatestPlay()
  */
 updatePlayerRow = (playerInfo) => {
-  console.log(playerInfo)
   const playerRow = `
     <tr class="track-not-lost ${playerInfo.id}">
       <th scope="row">${playerInfo.name}</th>
