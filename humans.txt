@@ -1,0 +1,15 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Thanapat Bhunnachet -- Developer -- @ichizen_kai / @tgcrusade#0270
+
+# THANKS
+
+    @ZydeKun#9529 from Discord for inspiration and direction
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5
+    Apache Server Configs, jQuery, Modernizr, Normalize.css

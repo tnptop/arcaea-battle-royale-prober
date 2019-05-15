@@ -1,0 +1,12 @@
+{
+  "short_name": "arcaea.tnptop",
+  "name": "Arcaea Rhythm Royale! Scoreboard",
+  "icons": [{
+    "src": "./img/favicon-96x96.png",
+    "type": "image/png",
+    "sizes": "96x96"
+  }],
+  "start_url": "/?utm_source=homescreen",
+  "background_color": "#fafafa",
+  "theme_color": "#fafafa"
+}

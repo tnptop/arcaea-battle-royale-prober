@@ -1,0 +1,132 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width,user-scalable=0">
+  <title>Arcaea Rhythm Royale! Prober</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="icon" href="./img/favicon-96x96.png" type="image/png">
+
+  <meta name="theme-color" content="#fafafa">
+
+  <style>
+    .track-lost {
+      background-color: #ececec;
+      color: #b9b9b9;
+    }
+  </style>
+</head>
+
+<body>
+  <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <!-- Add your site or application content here -->
+  <div class="container">
+    <div class="row"><h2>&nbsp;</h2></div>
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Arcaea Rhythm Royale! Scoreboard</h2>
+        <label for="player-id">Input Player IDs, separated by comma, here:</label>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text">Player ID</label>
+          </div>
+          <input type="text" class="form-control" id="player-id" aria-describedby="Player ID" placeholder="e.g. 012345678, 123456789" autocomplete="off">
+          <div class="input-group-append">
+            <button class="btn btn-primary" id="init-match" type="button" onclick="init()">Start Match</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row"><h2>&nbsp;</h2></div>
+    <div class="row match" style="display:none">
+      <div class="col-md-12">
+        <h3>Round #<span id="round-number">0</span></h3>
+      </div>
+    </div>
+    <div class="row match" style="display:none">
+      <div class="col-md-6 my-auto">
+        <div class="input-group mb-3 my-auto">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="song">Song</label>
+          </div>
+          <!-- placeholder attribute present for bootstrap autocomplete to grab the value and mask it with text input -->
+          <select class="form-control song-auto-complete" id="song" name="song-select" placeholder="Type song title here..." autocomplete="off"></select>
+        </div>
+      </div>
+      <div class="col-md-1 my-auto">
+        <span>&#128345; </span>
+        <span id="duration"></span>
+      </div>
+      <div class="col-md-1 my-auto">
+        <span>&#x023F1; </span>
+        <span id="round-duration"></span>
+      </div>
+      <div class="col-md-3 my-auto">
+        <span>{ } </span>
+        <span id="round-timestamp"></span>
+      </div>
+      <div class="col-md-1 my-auto">
+        <button class="btn btn-primary" id="round-btn" type="button" onclick="startRound()">Start</button>
+      </div>
+    </div>
+    &nbsp;
+    <div class="row match" style="display:none">
+      <div class="col-md-12">
+        <div class="table-responsive">
+          <table class="table" id="scoreboard">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Song</th>
+                <th scope="col">Score (Raw)</th>
+                <th scope="col">Far Count (Raw)</th>
+                <th scope="col">Submission Time</th>
+                <th scope="col">DQ</th>
+                <th scope="col">↻</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Will be populated after the match is started -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts goes here -->
+  <script src="js/vendor/brotli_decompress.min.js"></script>
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/xcash/bootstrap-autocomplete@v2.1.0/dist/latest/bootstrap-autocomplete.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/songinfo.js"></script>
+  <script src="js/songkeys.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
+
+</html>
