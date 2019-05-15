@@ -319,8 +319,11 @@ updatePlayerRow = (playerInfo) => {
  */
 searchSong = (query, callback) => {
   const hitResults = songkeys
-    .filter(([key, name]) => key.toLowerCase().includes(query) || name.toLowerCase().includes(query))
-    .map(([value, text]) => ({ value, text }))
+    .filter(([key, name]) =>
+      key.toLowerCase().includes(query.toLowerCase()) ||
+      name.toLowerCase().includes(query.toLowerCase())
+    )
+    .map(([value, text]) => ({value, text}))
 
   callback(hitResults)
 }
