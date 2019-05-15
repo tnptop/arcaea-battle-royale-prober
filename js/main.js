@@ -110,6 +110,7 @@ endRound = () => {
   $('#round-timestamp').html('')
 
   // convert button back to start
+  $('#round-btn').attr('disabled', true)
   $('#round-btn').attr('onclick', 'startRound()')
   $('#round-btn').html('Start')
 }
@@ -343,11 +344,15 @@ selectSong = (event, item) => {
   $('#duration').html(duration)
 
   // Round Duration
-  if (roundNumber === 1) roundDuration += 180
-  else if (roundNumber >= 2 && roundNumber <= 4) roundDuration += 120
-  else if (roundNumber >= 5 && roundNumber <= 7) roundDuration += 90
-  else if (roundNumber >= 8) roundDuration += 60
+  if (roundNumber === 1) roundDuration += 180 // 3 minutes
+  else if (roundNumber >= 2 && roundNumber <= 4) roundDuration += 150 // 2:30 minutes
+  else if (roundNumber >= 5 && roundNumber <= 7) roundDuration += 120 // 2 minutes
+  else if (roundNumber >= 8) roundDuration += 90 // 1:30 minutes
   $('#round-duration').html(convertSecondsToMinuteDisplay(roundDuration))
+
+  // enable the start button
+  // place here to make sure the the song really is selected
+  $('#round-btn').attr('disabled', false)
 }
 
 // Set up autocomplete on element with .song-auto-complete class
@@ -359,3 +364,9 @@ $('.song-auto-complete').autoComplete({
   }
 })
 $('.song-auto-complete').on('autocomplete.select', selectSong)
+$('.song-auto-complete').on('change', (event) => {
+  // disable the start button if the field is empty
+  if (event.target.value.length === 0) {
+    $('#round-btn').attr('disabled', true)
+  }
+})
