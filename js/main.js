@@ -122,7 +122,7 @@ startRound = () => {
       players.forEach((playerId) => probe(playerId, 'update'))
       roundButton.attr('disabled', false)
     }
-  }, 10)
+  }, 1000)
 
   // set the start and end time
   let start = Date.now()
@@ -163,6 +163,10 @@ endRound = () => {
     let index = players.findIndex((id) => id === player.id)
     players.splice(index, 1)
   })
+
+  // make the buttons of disqualified players unusable
+  $('.btn-danger').attr('disabled', true)
+  $('.btn-danger').addClass('btn-secondary').removeClass('btn-danger')
 
   // convert button back to start
   $('#round-btn').attr('disabled', true)
