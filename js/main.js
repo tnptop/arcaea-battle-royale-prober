@@ -9,6 +9,7 @@
  */
 let players = []
 let roundNumber = -1
+let currentRoundScore = {}
 
 /**
  * Helpers
@@ -44,14 +45,62 @@ convertMinuteDisplayToSeconds = (minuteString) => {
 /**
  * Start the match by retrieving player info
  */
-init = () => {
+init = async () => {
+  // initialize values
   players = []
   roundNumber = 1
+  currentRoundScore = {}
   $('#round-number').html(roundNumber)
+  $('.row.init').attr('style', 'display:none')
+
+  // show scoreboard
   $('.row.match').removeAttr('style')
+  $('#song-description').attr('style', 'margin-top: 0.5em')
+
+  // disable the start match button
   $('#init-match').attr('disabled', true)
-  players = $('#player-id').val().split(',').map((id) => id.trim())
-  players.forEach((playerId) => probe(playerId, 'init'))
+
+  // clear the previous scoreboard
+  $('tbody').html('')
+
+  // add players to the match
+  players = new Set($('#player-id').val().split(',').map((id) => id.trim()))
+
+  // exclude IDs for Hiraki and Tairitsu
+  players.delete('000000001')
+  players.delete('000000002')
+
+  // convert players from Set to Array for more operations
+  players = Array.from(players)
+
+  // initialize the scoreboard
+  try {
+    for (let playerId of players) {
+      await probe(playerId, 'init')
+    }
+
+    $.notify({
+      message: 'The match is ready.'
+    }, {
+      type: 'success',
+      delay: '3000',
+      allow_dismiss: false
+    })
+  } catch (e) {
+    $('.row.match').attr('style', 'display:none')
+    $('.row.init').removeAttr('style')
+    setTimeout(() => {
+      $('#init-match').attr('disabled', false)
+    }, 3000)
+
+    $.notify({
+      message: `The match failed to start, please try again.<br>Reason: ${e}`
+    }, {
+      type: 'danger',
+      delay: '3000',
+      allow_dismiss: false
+    })
+  }
 }
 
 /**
@@ -84,7 +133,7 @@ startRound = () => {
   players.forEach((playerId) => {
     updatePlayerRow(
       getLatestPlay(playerId,{
-          name: $(`tr.${playerId} th`).html(),
+          name: $(`tr#${playerId} th`)[0].childNodes[0].data,
           recent_score: [{}]
         },false)
     )
@@ -97,7 +146,7 @@ startRound = () => {
 }
 
 /**
- * End the current round
+ * End the current round and eliminate all players marked DQ
  */
 endRound = () => {
   // increment roundNumber
@@ -109,6 +158,12 @@ endRound = () => {
   $('#round-duration').html('')
   $('#round-timestamp').html('')
 
+  // remove disqualified players from the match
+  $('tr.track-lost').each((_, player) => {
+    let index = players.findIndex((id) => id === player.id)
+    players.splice(index, 1)
+  })
+
   // convert button back to start
   $('#round-btn').attr('disabled', true)
   $('#round-btn').attr('onclick', 'startRound()')
@@ -116,24 +171,20 @@ endRound = () => {
 }
 
 /**
- * Eliminate the player with playerId out of the match
+ * Mark the player with playerId as disqualified; the status can be evoked before the end of the round
  *
  * @param playerId: the 9-digit player ID
  */
 disqualifyPlayer = (playerId) => {
+  console.log(playerId, typeof playerId)
   // grey out the player in the scoreboard
-  let playerRow = $(`tr.${playerId}`)
   let dqButton = $(`#dq-${playerId}`)
   let syncButton = $(`#sync-${playerId}`)
-  playerRow.addClass('track-lost').removeClass('track-not-lost')
-  dqButton.attr('disabled', true)
-  dqButton.addClass('btn-secondary').removeClass('btn-primary')
-  syncButton.attr('disabled', true)
+  $(`tr#${playerId}`).addClass('track-lost').removeClass('track-not-lost')
+  dqButton.addClass('btn-danger').removeClass('btn-primary')
+  dqButton.attr('onclick', `undisqualifyPlayer('${playerId}')`)
   syncButton.addClass('btn-secondary').removeClass('btn-primary')
-
-  // remove the player from the game
-  let index = players.findIndex((id) => id === playerId)
-  players.splice(index, 1)
+  syncButton.attr('disabled', true)
 
   // place the player at the bottom of the scoreboard
   let playerRowsElem = $('tbody tr')
@@ -155,34 +206,59 @@ disqualifyPlayer = (playerId) => {
 }
 
 /**
+ * Revoke disqualified status from the player with playerId before the end of the round
+ *
+ * @param playerId: the 9-digit player ID
+ */
+undisqualifyPlayer = (playerId) => {
+  console.log(playerId, typeof playerId)
+  // revert the color back to normal
+  let dqButton = $(`#dq-${playerId}`)
+  let syncButton = $(`#sync-${playerId}`)
+  $(`tr#${playerId}`).addClass('track-not-lost').removeClass('track-lost')
+  dqButton.addClass('btn-primary').removeClass('btn-danger')
+  dqButton.attr('onclick', `disqualifyPlayer('${playerId}')`)
+  syncButton.addClass('btn-primary').removeClass('btn-secondary')
+  syncButton.attr('disabled', false)
+
+  // rank players again if the scoreboard is already ranked
+  if ($('#round-btn').html() === 'End') rankPlayers()
+}
+
+/**
  * Rank and arrange the scoreboard
  */
 rankPlayers = () => {
-  const SCORE_TD_POSITION = 2
-  const SCORE_POSITION = 0
+  let playerElem = $('tr.track-not-lost')
+  let dqPlayerElem = $('tr.track-lost')
 
-  let playerElem = $('tbody tr.track-not-lost')
-  let dqPlayerElem = $('tbody tr.track-lost')
-  let getScore = (elem) => {
-    return elem.children[SCORE_TD_POSITION].children[SCORE_POSITION].innerHTML
-  }
-
-  // sort by total score
+  // sort by score (descending; the higher the better) then FAR count (ascending; the lower the better)
   playerElem.sort((a, b) => {
-    return getScore(b) - getScore(a)
+    // extract score and FAR count
+    let aLeadingScore = currentRoundScore[a.id].leadingScore
+    let bLeadingScore = currentRoundScore[b.id].leadingScore
+    let aFarCount = currentRoundScore[a.id].farCount
+    let bFarCount = currentRoundScore[b.id].farCount
+
+    // calculate sort order
+    let scoreSort = bLeadingScore - aLeadingScore
+    let farSort = aFarCount - bFarCount
+
+    // sort by score first; if tie then sort by FAR count
+    return scoreSort !== 0 ? scoreSort : farSort
   })
 
   // replace current scoreboard
   let rankedScoreboardDOM = [...playerElem, ...dqPlayerElem]
-  for (let i = 0; i < rankedScoreboardDOM.length; i++) {
-    rankedScoreboardDOM[i] = rankedScoreboardDOM[i].outerHTML
-  }
   let rankedScoreboard = rankedScoreboardDOM.reduce((board, row) => {
-    return board + row
+    return board + row.outerHTML
   }, '<tbody>')
   rankedScoreboard += '</tbody>'
 
   $('tbody').replaceWith(rankedScoreboard)
+
+  // set the players variable to reflect the ranking
+  players = rankedScoreboardDOM.map((playerDOM) => playerDOM.id)
 
   // convert button back to end
   $('#round-btn').attr('onclick', 'endRound()')
@@ -203,38 +279,62 @@ probe = (playerId, action) => {
   const ws = new WebSocket('wss://arc.estertion.win:616')
   ws.binaryType = 'arraybuffer'
 
-  // use declaration syntax for named function
-  ws.onopen = function open() {
-    console.log('querying the data of:', playerId)
-    ws.send(String(playerId)) // there exist ID with leading zero, thus stringify it
-  }
+  return new Promise((resolve, reject) => {
+    // use declaration syntax for named function
+    ws.onopen = function open () {
+      console.log('querying the data of:', playerId)
+      ws.send(String(playerId)) // there exist ID with leading zero, thus stringify it
+    }
 
-  ws.onclose = function close() {
-    console.log(playerId, 'done')
-  }
+    ws.onclose = function close () {
+      console.log(playerId, 'done')
+    }
 
-  ws.onmessage = function incoming({ data }) {
-    if (data.byteLength) {
-      let message = BrotliDecompress(new Uint8Array(data))
-      message = String.fromCharCode.apply(String, message)
-      message = JSON.parse(decodeURIComponent(escape(message)))
-      let playerInfo = {}
+    ws.onmessage = function incoming ({data}) {
+      if (data.byteLength) {
+        let message = BrotliDecompress(new Uint8Array(data))
+        message = String.fromCharCode.apply(String, message)
+        message = JSON.parse(decodeURIComponent(escape(message)))
+        let playerInfo = {}
 
-      if (message.cmd === 'userinfo') {
-        switch (action) {
-          case 'init':
-            playerInfo = getLatestPlay(playerId, message.data, false)
-            generatePlayerRow(playerInfo)
-            break
-          case 'update':
-            playerInfo = getLatestPlay(playerId, message.data, true)
-            updatePlayerRow(playerInfo)
-            break
+        if (message.cmd === 'userinfo') {
+          if (message.data) {
+            switch (action) {
+              case 'init':
+                playerInfo = getLatestPlay(playerId, message.data, false)
+                currentRoundScore[playerId] = {}
+                generatePlayerRow(playerInfo)
+                break
+              case 'update':
+                playerInfo = getLatestPlay(playerId, message.data, true)
+                currentRoundScore[playerId] = playerInfo
+                updatePlayerRow(playerInfo)
+                break
+            }
+            ws.close() // force close the socket session since the data needed is retrieved
+            return resolve() // don't wait for the connection to closed since the data is retrieved
+          }
         }
-        ws.close()
+      } else if (data === 'invalid id') {
+        console.log(`The ID ${playerId} is invalid.`)
+        return reject(`The ID ${playerId} is invalid.`)
+      } else if (data === 'error,add') {
+        let player = currentRoundScore[playerId] ? $(`tr#${playerId} th`)[0].childNodes[0].data : playerId
+
+        console.log(`Cannot load player ${player} info.`)
+        if (action === 'update') {
+          $.notify({
+            message: `Cannot load player ${player} info. Please try again.`
+          }, {
+            type: 'danger',
+            delay: '3000',
+            allow_dismiss: false
+          })
+        }
+        return reject(`Cannot load player ${player} info.`)
       }
     }
-  }
+  })
 }
 
 /**
@@ -260,7 +360,7 @@ getLatestPlay = (playerId, data, flag) => {
     name: data.name,
     title: flag ? songinfo[song_id].en : '----',
     score: flag ? score : '----',
-    leadingScore: flag ? String(score).padStart(8, '0').slice(0, 4) : '----',
+    leadingScore: flag ? String(score).padStart(8, '0').slice(0, 3) : '----',
     rawScore: flag ? score - shiny_perfect_count : '----',
     farCount: flag ? near_count + (miss_count * 2) : '----',
     rawFarCount: flag ? `F${near_count}, L${miss_count}` : '----',
@@ -275,8 +375,8 @@ getLatestPlay = (playerId, data, flag) => {
  */
 generatePlayerRow = (playerInfo) => {
   const playerRow = `
-    <tr class="track-not-lost ${playerInfo.id}">
-      <th scope="row">${playerInfo.name}</th>
+    <tr class="track-not-lost" id="${playerInfo.id}">
+      <th scope="row">${playerInfo.name}<br>(${playerInfo.id})</th>
       <td>${playerInfo.title}</td>
       <td><span class="score">${playerInfo.score}</span><br>(${playerInfo.rawScore})</td>
       <td><span class="far-count">${playerInfo.farCount}</span><br>(${playerInfo.rawFarCount})</td>
@@ -295,8 +395,8 @@ generatePlayerRow = (playerInfo) => {
  */
 updatePlayerRow = (playerInfo) => {
   const playerRow = `
-    <tr class="track-not-lost ${playerInfo.id}">
-      <th scope="row">${playerInfo.name}</th>
+    <tr class="track-not-lost" id="${playerInfo.id}">
+      <th scope="row">${playerInfo.name}<br>(${playerInfo.id})</th>
       <td>${playerInfo.title}</td>
       <td><span class="score">${playerInfo.score}</span><br>(${playerInfo.rawScore})</td>
       <td><span class="far-count">${playerInfo.farCount}</span><br>(${playerInfo.rawFarCount})</td>
@@ -305,7 +405,7 @@ updatePlayerRow = (playerInfo) => {
       <td><button class="btn btn-primary" type="button" id="sync-${playerInfo.id}" onclick="probe('${playerInfo.id}', 'update')">↻</button></td>
     </tr>
   `
-  $(`.${playerInfo.id}`).replaceWith(playerRow)
+  $(`#${playerInfo.id}`).replaceWith(playerRow)
 }
 
 /**
@@ -355,6 +455,17 @@ selectSong = (event, item) => {
   $('#round-btn').attr('disabled', false)
 }
 
+/**
+ * Toggle the round start button based on search box status
+ *
+ * @param event: event from the component
+ */
+toggleRoundButton = (event) => {
+  // zero length = empty search box => ability to start round not allowed
+  // otherwise allow the round to be started
+  $('#round-btn').attr('disabled', event.target.value.length !== 0)
+}
+
 // Set up autocomplete on element with .song-auto-complete class
 $('.song-auto-complete').autoComplete({
   resolver: 'custom',
@@ -364,9 +475,4 @@ $('.song-auto-complete').autoComplete({
   }
 })
 $('.song-auto-complete').on('autocomplete.select', selectSong)
-$('.song-auto-complete').on('change', (event) => {
-  // disable the start button if the field is empty
-  if (event.target.value.length === 0) {
-    $('#round-btn').attr('disabled', true)
-  }
-})
+$('.song-auto-complete').on('change', toggleRoundButton)

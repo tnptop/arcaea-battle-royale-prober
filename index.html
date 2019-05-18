@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="css/main.css" type="text/css">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" type="text/css">
 
   <link rel="icon" href="./img/favicon-96x96.png" type="image/png">
 
@@ -35,10 +36,13 @@
 
   <!-- Add your site or application content here -->
   <div class="container">
-    <div class="row"><h2>&nbsp;</h2></div>
     <div class="row">
       <div class="col-md-12">
-        <h2>Arcaea Rhythm Royale! Scoreboard</h2>
+        <h2>&nbsp;<br>Arcaea Rhythm Royale! Scoreboard</h2>
+      </div>
+    </div>
+    <div class="row init">
+      <div class="col-md-12">
         <label for="player-id">Input Player IDs, separated by comma, here:</label>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
@@ -51,14 +55,13 @@
         </div>
       </div>
     </div>
-    <div class="row"><h2>&nbsp;</h2></div>
     <div class="row match" style="display:none">
       <div class="col-md-12">
         <h3>Round #<span id="round-number">0</span></h3>
       </div>
     </div>
     <div class="row match" style="display:none">
-      <div class="col-md-6 my-auto">
+      <div class="col-md-11 my-auto">
         <div class="input-group mb-3 my-auto">
           <div class="input-group-prepend">
             <label class="input-group-text" for="song">Song</label>
@@ -68,22 +71,24 @@
         </div>
       </div>
       <div class="col-md-1 my-auto">
-        <span>&#128345; </span>
-        <span id="duration"></span>
-      </div>
-      <div class="col-md-1 my-auto">
-        <span>&#x023F1; </span>
-        <span id="round-duration"></span>
-      </div>
-      <div class="col-md-3 my-auto">
-        <span>{ } </span>
-        <span id="round-timestamp"></span>
-      </div>
-      <div class="col-md-1 my-auto">
         <button class="btn btn-primary" id="round-btn" type="button" onclick="startRound()" disabled>Start</button>
       </div>
     </div>
-    &nbsp;
+    <div class="row match" id="song-description" style="display:none; margin-top: 0.5em">
+      <div class="col-md-4 my-bottom">
+        <span>&#128345; Song Length: </span>
+        <span id="duration"></span>
+      </div>
+      <div class="col-md-4 my-bottom">
+        <span>&#x023F1; Time Remaining: </span>
+        <span id="round-duration"></span>
+      </div>
+      <div class="col-md-4 my-bottom">
+        <span>{ } Round Duration: </span>
+        <span id="round-timestamp"></span>
+      </div>
+    </div>
+    <br>
     <div class="row match" style="display:none">
       <div class="col-md-12">
         <div class="table-responsive">
@@ -109,13 +114,17 @@
   </div>
 
   <!-- Scripts goes here -->
-  <script src="js/vendor/brotli_decompress.min.js"></script>
-  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <!-- CDN -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/gh/xcash/bootstrap-autocomplete@v2.1.0/dist/latest/bootstrap-autocomplete.min.js"></script>
+  <!-- Local vendor -->
+  <script src="js/vendor/brotli_decompress.min.js"></script>
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="js/vendor/bootstrap-notify.min.js"></script>
+  <!-- scripts -->
   <script src="js/plugins.js"></script>
   <script src="js/songinfo.js"></script>
   <script src="js/songkeys.js"></script>
