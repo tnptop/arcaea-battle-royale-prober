@@ -75,8 +75,15 @@ init = async () => {
 
   // initialize the scoreboard
   try {
-    for (let playerId of players) {
-      await probe(playerId, 'init')
+    // probe 2 players simultaneously as the server has only 2 processes
+    let queues = []
+    for (let i = 0; i < players.length; i += 2) {
+      let queue = [players[i]]
+      if (players[i + 1] !== undefined) queue.push(players[i + 1])
+      queues.push(queue)
+    }
+    for (let queue of queues) {
+      await Promise.all(queue.map((player) => probe(player, 'init')))
     }
 
     $.notify({
@@ -110,16 +117,24 @@ init = async () => {
 /**
  * Start the round after the song is selected
  */
-startRound = () => {
+startRound = async () => {
   let roundButton = $('#round-btn')
   let roundDurationElem = $('#round-duration')
   let secondsLeft = convertMinuteDisplayToSeconds(roundDurationElem.html())
-  let handle = setInterval(() => {
+  let handle = setInterval(async () => {
     roundDurationElem.html(convertSecondsToMinuteDisplay(--secondsLeft))
     if (secondsLeft === 0) {
       clearInterval(handle)
       // probe for every players' score right after the round ends
-      players.forEach((playerId) => probe(playerId, 'update'))
+      let queues = []
+      for (let i = 0; i < players.length; i += 2) {
+        let queue = [players[i]]
+        if (players[i + 1] !== undefined) queue.push(players[i + 1])
+        queues.push(queue)
+      }
+      for (let queue of queues) {
+        await Promise.all(queue.map((player) => probe(player, 'update')))
+      }
       roundButton.attr('disabled', false)
     }
   }, 1000)
@@ -283,6 +298,8 @@ probe = (playerId, action) => {
   const ws = new WebSocket('wss://arc.estertion.win:616')
   ws.binaryType = 'arraybuffer'
 
+  let error = ''
+
   return new Promise((resolve, reject) => {
     // use declaration syntax for named function
     ws.onopen = function open () {
@@ -292,6 +309,8 @@ probe = (playerId, action) => {
 
     ws.onclose = function close () {
       console.log(playerId, 'done')
+      // wait until the connection close ensure the reliability of requesting multiple sockets
+      return error.length === 0 ? resolve() : reject(error)
     }
 
     ws.onmessage = function incoming ({data}) {
@@ -316,14 +335,14 @@ probe = (playerId, action) => {
                 break
             }
             ws.close() // force close the socket session since the data needed is retrieved
-            return resolve() // don't wait for the connection to closed since the data is retrieved
           }
         }
       } else if (data === 'invalid id') {
+        error = `The ID ${playerId} is invalid.`
         console.log(`The ID ${playerId} is invalid.`)
-        return reject(`The ID ${playerId} is invalid.`)
       } else if (data === 'error,add') {
         let player = currentRoundScore[playerId] ? $(`tr#${playerId} th`)[0].childNodes[0].data : playerId
+        error = `Cannot load player ${player} info.`
 
         console.log(`Cannot load player ${player} info.`)
         if (action === 'update') {
@@ -335,7 +354,6 @@ probe = (playerId, action) => {
             allow_dismiss: false
           })
         }
-        return reject(`Cannot load player ${player} info.`)
       }
     }
   })
