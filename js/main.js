@@ -73,19 +73,65 @@ init = async () => {
   // convert players from Set to Array for more operations
   players = Array.from(players)
 
-  // initialize the scoreboard
-  try {
-    // probe 2 players simultaneously as the server has only 2 processes
-    let queues = []
-    for (let i = 0; i < players.length; i += 2) {
-      let queue = [players[i]]
-      if (players[i + 1] !== undefined) queue.push(players[i + 1])
-      queues.push(queue)
-    }
-    for (let queue of queues) {
-      await Promise.all(queue.map((player) => probe(player, 'init')))
-    }
+  // check for any invalid ID
+  let invalidId = players.filter((player) => !(/^[0-9]{9}$/.test(player)))
+  if (invalidId.length > 0) {
+    $('.row.match').attr('style', 'display:none')
+    $('.row.init').removeAttr('style')
+    setTimeout(() => {
+      $('#init-match').attr('disabled', false)
+    }, 3000)
+    $.notify({
+      message: `ID ${invalidId.reduce((e, id) => e.concat(id) + ', ', '').slice(0, -2)} ${invalidId.length === 1 ? 'is' : 'are'} invalid. Please try again.`
+    }, {
+      type: 'danger',
+      delay: '5000',
+      allow_dismiss: false
+    })
+    return 0
+  }
 
+  // initialize the scoreboard
+  players.forEach((player) =>
+    appendPlayerRow(
+      getLatestPlay(player, {
+        name: player,
+        recent_score: [{}]
+      }, false)
+    )
+  )
+  // probe 2 players simultaneously as the server has only 2 processes
+  let start = new Date()
+  let queues = []
+  for (let i = 0; i < players.length; i += 2) {
+    let queue = [players[i]]
+    if (players[i + 1] !== undefined) queue.push(players[i + 1])
+    queues.push(queue)
+  }
+  for (let queue of queues) {
+    try {
+      await Promise.all(queue.map((player) => probe(player)))
+    } catch (error) {
+      $.notify({
+        message: error.message
+      }, {
+        type: 'danger',
+        delay: '3000',
+        allow_dismiss: false
+      })
+    }
+  }
+  let end = new Date()
+  console.log(`Total load time for ${players.length} players:`, (end - start) / 1000)
+
+  // let the user know whether every player data is loaded or not
+  let failedToLoadPlayers = Object.entries(currentRoundScore)
+    .reduce((players, [id, record]) => {
+      if (!record.id) players.push(id)
+      return players
+    }, [])
+
+  if (failedToLoadPlayers.length === 0) {
     $.notify({
       message: 'The match is ready.'
     }, {
@@ -93,17 +139,11 @@ init = async () => {
       delay: '3000',
       allow_dismiss: false
     })
-  } catch (e) {
-    $('.row.match').attr('style', 'display:none')
-    $('.row.init').removeAttr('style')
-    setTimeout(() => {
-      $('#init-match').attr('disabled', false)
-    }, 3000)
-
+  } else {
     $.notify({
-      message: `The match failed to start, please try again.<br>Reason: ${e}`
+      message: `Some players are not loaded. Press ↻ to try again.`
     }, {
-      type: 'danger',
+      type: 'warning',
       delay: '3000',
       allow_dismiss: false
     })
@@ -126,6 +166,7 @@ startRound = async () => {
     if (secondsLeft === 0) {
       clearInterval(handle)
       // probe for every players' score right after the round ends
+      let start = new Date()
       let queues = []
       for (let i = 0; i < players.length; i += 2) {
         let queue = [players[i]]
@@ -133,11 +174,23 @@ startRound = async () => {
         queues.push(queue)
       }
       for (let queue of queues) {
-        await Promise.all(queue.map((player) => probe(player, 'update')))
+        try {
+          await Promise.all(queue.map((player) => probe(player)))
+        } catch (error) {
+          $.notify({
+            message: error.message
+          }, {
+            type: 'danger',
+            delay: '3000',
+            allow_dismiss: false
+          })
+        }
       }
+      let end = new Date()
+      console.log(`Total load time for ${players} players:`, (end - start) / 1000)
       roundButton.attr('disabled', false)
     }
-  }, 1000)
+  }, 1)
 
   // set the start and end time
   let start = Date.now()
@@ -150,7 +203,8 @@ startRound = async () => {
       getLatestPlay(playerId,{
           name: $(`tr#${playerId} th`)[0].childNodes[0].data,
           recent_score: [{}]
-        },false)
+        },false
+      )
     )
   })
 
@@ -195,7 +249,6 @@ endRound = () => {
  * @param playerId: the 9-digit player ID
  */
 disqualifyPlayer = (playerId) => {
-  console.log(playerId, typeof playerId)
   // grey out the player in the scoreboard
   let dqButton = $(`#dq-${playerId}`)
   let syncButton = $(`#sync-${playerId}`)
@@ -230,7 +283,6 @@ disqualifyPlayer = (playerId) => {
  * @param playerId: the 9-digit player ID
  */
 undisqualifyPlayer = (playerId) => {
-  console.log(playerId, typeof playerId)
   // revert the color back to normal
   let dqButton = $(`#dq-${playerId}`)
   let syncButton = $(`#sync-${playerId}`)
@@ -292,25 +344,34 @@ rankPlayers = () => {
  * Communicate with the server to retrieve the latest play info of playerId
  *
  * @param playerId: the 9-digit player ID
- * @param action: either 'init' or 'update'
+ * @returns {Promise<void>}: resolve if successfully probed, reject with error otherwise
  */
-probe = (playerId, action) => {
-  const ws = new WebSocket('wss://arc.estertion.win:616')
-  ws.binaryType = 'arraybuffer'
-
-  let error = ''
-
+probe = (playerId) => {
   return new Promise((resolve, reject) => {
+    let error = {}
+    const ws = new WebSocket('wss://arc.estertion.win:616')
+    ws.binaryType = 'arraybuffer'
+    let start = 0, end = 0
+
     // use declaration syntax for named function
     ws.onopen = function open () {
       console.log('querying the data of:', playerId)
+      start = new Date()
       ws.send(String(playerId)) // there exist ID with leading zero, thus stringify it
     }
 
     ws.onclose = function close () {
-      console.log(playerId, 'done')
+      end = new Date()
+      console.log(playerId, 'done, time elapsed:', (end - start) / 1000)
       // wait until the connection close ensure the reliability of requesting multiple sockets
-      return error.length === 0 ? resolve() : reject(error)
+      return error.message ? reject(error) : resolve()
+    }
+
+    ws.onerror = function error (event) {
+      currentRoundScore[playerId] = {}
+      console.log(playerId, 'error, time elapsed:', (end - start) / 1000)
+      // in a case that connection to the server failed
+      return reject({ message: 'Cannot connect to server. Please try again.' })
     }
 
     ws.onmessage = function incoming ({data}) {
@@ -322,41 +383,48 @@ probe = (playerId, action) => {
 
         if (message.cmd === 'userinfo') {
           if (message.data) {
-            switch (action) {
-              case 'init':
-                playerInfo = getLatestPlay(playerId, message.data, false)
-                currentRoundScore[playerId] = {}
-                generatePlayerRow(playerInfo)
-                break
-              case 'update':
-                playerInfo = getLatestPlay(playerId, message.data, true)
-                currentRoundScore[playerId] = playerInfo
-                updatePlayerRow(playerInfo)
-                break
-            }
+            playerInfo = getLatestPlay(playerId, message.data, true)
+            currentRoundScore[playerId] = playerInfo
+            updatePlayerRow(playerInfo)
             ws.close() // force close the socket session since the data needed is retrieved
           }
         }
       } else if (data === 'invalid id') {
-        error = `The ID ${playerId} is invalid.`
+        error.restart = true
+        error.message = `The ID ${playerId} is invalid.`
         console.log(`The ID ${playerId} is invalid.`)
       } else if (data === 'error,add') {
         let player = currentRoundScore[playerId] ? $(`tr#${playerId} th`)[0].childNodes[0].data : playerId
-        error = `Cannot load player ${player} info.`
-
+        let playerInfo = getLatestPlay(player, {
+          name: player,
+          recent_score: [{}]
+        }, false)
+        currentRoundScore[player] = {}
         console.log(`Cannot load player ${player} info.`)
-        if (action === 'update') {
-          $.notify({
-            message: `Cannot load player ${player} info. Please try again.`
-          }, {
-            type: 'danger',
-            delay: '3000',
-            allow_dismiss: false
-          })
-        }
+        error.message = `Cannot load player ${player} info. Please try again.`
+        updatePlayerRow(playerInfo)
       }
     }
   })
+}
+
+/**
+ * Manually probe for custom notification
+ *
+ * @param playerId: the 9-digit player ID
+ */
+probeAsync = async (playerId) => {
+  try {
+    await probe(playerId)
+  } catch (error) {
+    $.notify({
+      message: error.message
+    }, {
+      type: 'danger',
+      delay: '3000',
+      allow_dismiss: false
+    })
+  }
 }
 
 /**
@@ -364,7 +432,7 @@ probe = (playerId, action) => {
  *
  * @param playerId: the 9-digit player ID
  * @param data: the latest play info retrieved from the server
- * @param flag: retain the data or not (latest play or init match)
+ * @param flag: retain the data or not (true if the data is expected to be loaded, false otherwise)
  * @returns {{score: number, name: *, rawScore: number, farCount: number, leadingScore: string, title: string, timestamp}}
  */
 getLatestPlay = (playerId, data, flag) => {
@@ -386,17 +454,18 @@ getLatestPlay = (playerId, data, flag) => {
     rawScore: flag ? score - shiny_perfect_count : '----',
     farCount: flag ? near_count + (miss_count * 2) : '----',
     rawFarCount: flag ? `F${near_count}, L${miss_count}` : '----',
-    timestamp: flag ? new Date(time_played).toLocaleString('en-US') : '----'
+    timestamp: flag ? (new Date(time_played).toLocaleString('en-US')).replace(' ', '<br>') : '----'
   }
 }
 
 /**
- * Add new player to the scoreboard
+ * Generate DOM for a player in the scoreboard
  *
  * @param playerInfo: the player info from getLatestPlay()
+ * @returns {string}: a string representing DOM for the player in the scoreboard
  */
 generatePlayerRow = (playerInfo) => {
-  const playerRow = `
+  return `
     <tr class="track-not-lost" id="${playerInfo.id}">
       <th scope="row">${playerInfo.name}<br>(${playerInfo.id})</th>
       <td>${playerInfo.title}</td>
@@ -404,10 +473,18 @@ generatePlayerRow = (playerInfo) => {
       <td><span class="far-count">${playerInfo.farCount}</span><br>(${playerInfo.rawFarCount})</td>
       <td>${playerInfo.timestamp}</td>
       <td><button class="btn btn-primary" type="button" id="dq-${playerInfo.id}" onclick="disqualifyPlayer('${playerInfo.id}')">DQ</button></td>
-      <td><button class="btn btn-primary" type="button" id="sync-${playerInfo.id}" onclick="probe('${playerInfo.id}', 'update')">↻</button></td>
+      <td><button class="btn btn-primary" type="button" id="sync-${playerInfo.id}" onclick="probeAsync('${playerInfo.id}')">↻</button></td>
     </tr>
   `
-  $('#scoreboard tbody').append(playerRow)
+}
+
+/**
+ * Add new player to the scoreboard
+ *
+ * @param playerInfo: the player info from getLatestPlay()
+ */
+appendPlayerRow = (playerInfo) => {
+  $('#scoreboard tbody').append(generatePlayerRow(playerInfo))
 }
 
 /**
@@ -416,18 +493,7 @@ generatePlayerRow = (playerInfo) => {
  * @param playerInfo: the player info from getLatestPlay()
  */
 updatePlayerRow = (playerInfo) => {
-  const playerRow = `
-    <tr class="track-not-lost" id="${playerInfo.id}">
-      <th scope="row">${playerInfo.name}<br>(${playerInfo.id})</th>
-      <td>${playerInfo.title}</td>
-      <td><span class="score">${playerInfo.score}</span><br>(${playerInfo.rawScore})</td>
-      <td><span class="far-count">${playerInfo.farCount}</span><br>(${playerInfo.rawFarCount})</td>
-      <td>${playerInfo.timestamp}</td>
-      <td><button class="btn btn-primary" type="button" id="dq-${playerInfo.id}" onclick="disqualifyPlayer('${playerInfo.id}')">DQ</button></td>
-      <td><button class="btn btn-primary" type="button" id="sync-${playerInfo.id}" onclick="probe('${playerInfo.id}', 'update')">↻</button></td>
-    </tr>
-  `
-  $(`#${playerInfo.id}`).replaceWith(playerRow)
+  $(`#${playerInfo.id}`).replaceWith(generatePlayerRow(playerInfo))
 }
 
 /**
