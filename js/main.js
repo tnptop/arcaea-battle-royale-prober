@@ -100,27 +100,25 @@ init = async () => {
       }, false)
     )
   )
-  // probe 2 players simultaneously as the server has only 2 processes
+  // greedily probe players, not waiting for graceful socket closing
   let start = new Date()
-  let queues = []
-  for (let i = 0; i < players.length; i += 2) {
-    let queue = [players[i]]
-    if (players[i + 1] !== undefined) queue.push(players[i + 1])
-    queues.push(queue)
-  }
-  for (let queue of queues) {
-    try {
-      await Promise.all(queue.map((player) => probe(player)))
-    } catch (error) {
-      $.notify({
-        message: error.message
-      }, {
-        type: 'danger',
-        delay: '3000',
-        allow_dismiss: false
-      })
-    }
-  }
+  await Promise.all(players.map((player) => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        await probe(player)
+        return resolve()
+      } catch (error) {
+        $.notify({
+          message: error.message
+        }, {
+          type: 'danger',
+          delay: '3000',
+          allow_dismiss: false
+        })
+        resolve()
+      }
+    })
+  }))
   let end = new Date()
   console.log(`Total load time for ${players.length} players:`, (end - start) / 1000)
 
@@ -165,27 +163,25 @@ startRound = async () => {
     roundDurationElem.html(convertSecondsToMinuteDisplay(--secondsLeft))
     if (secondsLeft === 0) {
       clearInterval(handle)
-      // probe for every players' score right after the round ends
+      // greedily probe players, not waiting for graceful socket closing
       let start = new Date()
-      let queues = []
-      for (let i = 0; i < players.length; i += 2) {
-        let queue = [players[i]]
-        if (players[i + 1] !== undefined) queue.push(players[i + 1])
-        queues.push(queue)
-      }
-      for (let queue of queues) {
-        try {
-          await Promise.all(queue.map((player) => probe(player)))
-        } catch (error) {
-          $.notify({
-            message: error.message
-          }, {
-            type: 'danger',
-            delay: '3000',
-            allow_dismiss: false
-          })
-        }
-      }
+      await Promise.all(players.map((player) => {
+        return new Promise(async (resolve, reject) => {
+          try {
+            await probe(player)
+            return resolve()
+          } catch (error) {
+            $.notify({
+              message: error.message
+            }, {
+              type: 'danger',
+              delay: '3000',
+              allow_dismiss: false
+            })
+            resolve()
+          }
+        })
+      }))
       let end = new Date()
       console.log(`Total load time for ${players} players:`, (end - start) / 1000)
       roundButton.attr('disabled', false)
