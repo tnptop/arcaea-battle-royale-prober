@@ -1,4 +1,9 @@
 {
+  "aiueoon":{
+    "en":"AI[UE]OON",
+    "duration":"2:19",
+    "baseRoundDuration":209
+  },
   "alexandrite":{
     "en":"Alexandrite",
     "duration":"2:20",
@@ -78,6 +83,11 @@
     "en":"carmine:scythe",
     "duration":"2:26",
     "baseRoundDuration":219
+  },
+  "chelsea":{
+    "en":"Chelsea",
+    "duration":"2:07",
+    "baseRoundDuration":191
   },
   "chronostasis":{
     "en":"Chronostasis",
@@ -354,6 +364,11 @@
     "duration":"2:26",
     "baseRoundDuration":219
   },
+  "melodyoflove":{
+    "en":"A Wandering Melody of Love",
+    "duration":"2:11",
+    "baseRoundDuration":197
+  },
   "memoryfactory":{
     "en":"memoryfactory.lzh",
     "duration":"2:11",
@@ -604,6 +619,11 @@
     "duration":"2:21",
     "baseRoundDuration":212
   },
+  "tiemedowngently":{
+    "en":"Tie me down gently",
+    "duration":"2:15",
+    "baseRoundDuration":203
+  },
   "tiferet":{
     "en":"Tiferet",
     "duration":"2:28",
@@ -613,6 +633,11 @@
     "en":"trappola bewitching",
     "duration":"2:00",
     "baseRoundDuration":180
+  },
+  "valhallazero":{
+    "en":"Valhalla:0",
+    "duration":"2:22",
+    "baseRoundDuration":213
   },
   "vector":{
     "en":"VECTOЯ",
