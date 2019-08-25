@@ -190,7 +190,7 @@ startRound = async () => {
       console.log(`Total load time for ${players} players:`, (end - start) / 1000)
       roundButton.attr('disabled', false)
     }
-  }, 1)
+  }, 1000)
 
   // set the start and end time
   let start = Date.now()
