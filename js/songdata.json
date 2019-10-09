@@ -149,6 +149,11 @@
     "duration":"2:09",
     "baseRoundDuration":194
   },
+  "diode":{
+    "en":"Diode",
+    "duration":"2:18",
+    "baseRoundDuration":207
+  },
   "dottodot":{
     "en":"Dot to Dot feat. shully",
     "duration":"2:12",
@@ -229,6 +234,11 @@
     "duration":"2:35",
     "baseRoundDuration":233
   },
+  "freefall":{
+    "en":"FREEF4LL",
+    "duration":"2:28",
+    "baseRoundDuration":222
+  },
   "garakuta":{
     "en":"Garakuta Doll Play",
     "duration":"2:05",
@@ -238,6 +248,11 @@
     "en":"Genesis",
     "duration":"2:13",
     "baseRoundDuration":200
+  },
+  "gloryroad":{
+    "en":"GLORY : ROAD",
+    "duration":"2:22",
+    "baseRoundDuration":213
   },
   "goodtek":{
     "en":"GOODTEK (Arcaea Edit)",
