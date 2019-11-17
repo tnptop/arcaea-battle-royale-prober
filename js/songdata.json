@@ -294,6 +294,11 @@
     "duration":"2:08",
     "baseRoundDuration":192
   },
+  "heavenlycaress":{
+    "en":"Heavenly caress",
+    "duration":"2:10",
+    "baseRoundDuration":195
+  },
   "heavensdoor":{
     "en":"Heavensdoor",
     "duration":"2:12",
@@ -413,6 +418,11 @@
     "en":"Modelista",
     "duration":"2:08",
     "baseRoundDuration":192
+  },
+  "monochromeprincess":{
+    "en":"Monochrome Princess",
+    "duration":"2:17",
+    "baseRoundDuration":206
   },
   "moonheart":{
     "en":"Moonheart",
