@@ -219,6 +219,11 @@
     "duration":"2:33",
     "baseRoundDuration":230
   },
+  "filament":{
+    "en":"Filament",
+    "duration":"2:22",
+    "baseRoundDuration":213
+  },
   "flashback":{
     "en":"Flashback",
     "duration":"2:07",
@@ -568,6 +573,11 @@
     "en":"Scarlet Lance",
     "duration":"2:09",
     "baseRoundDuration":194
+  },
+  "senkyou":{
+    "en":"Senkyou",
+    "duration":"2:35",
+    "baseRoundDuration":233
   },
   "shadesoflight":{
     "en":"Shades of Light in a Transcendent Realm",
