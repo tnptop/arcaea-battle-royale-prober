@@ -73,6 +73,9 @@ init = async () => {
   // convert players from Set to Array for more operations
   players = Array.from(players)
 
+  // clear #player-id input
+  $('#player-id').val('')
+
   // check for any invalid ID
   let invalidId = players.filter((player) => !(/^[0-9]{9}$/.test(player)))
   if (invalidId.length > 0) {
@@ -380,6 +383,7 @@ probe = (playerId) => {
         message = String.fromCharCode.apply(String, message)
         message = JSON.parse(decodeURIComponent(escape(message)))
         let playerInfo = {}
+        console.log('message\n', message)
 
         if (message.cmd === 'userinfo') {
           if (message.data) {
@@ -564,3 +568,14 @@ $('.song-auto-complete').autoComplete({
 })
 $('.song-auto-complete').on('autocomplete.select', selectSong)
 $('.song-auto-complete').on('change', toggleRoundButton)
+
+/**
+ * Add event listener to allow pressing enter to start a round
+ */
+const initMatchBtn = $('#init-match')
+const idInput = $('#player-id')
+document.addEventListener('keyup', (event) => {
+  if (initMatchBtn.attr('disabled') || event.key !== 'Enter' || idInput.val() === '') return
+  initMatchBtn.click()
+  event.preventDefault()
+})

@@ -61,18 +61,23 @@
       </div>
     </div>
     <div class="row match" style="display:none">
-      <div class="col-md-11 my-auto">
+      <div class="col-md-12 my-auto">
         <div class="input-group mb-3 my-auto">
           <div class="input-group-prepend">
             <label class="input-group-text" for="song">Song</label>
           </div>
           <!-- placeholder attribute present for bootstrap autocomplete to grab the value and mask it with text input -->
           <select class="form-control song-auto-complete" id="song" name="song-select" placeholder="Type song title here..." autocomplete="off"></select>
+          <div class="input-group-append">
+            <button class="btn btn-primary" id="round-btn" type="button" onclick="startRound()" disabled>Start</button>
+          </div>
         </div>
       </div>
+      <!--
       <div class="col-md-1 my-auto">
         <button class="btn btn-primary" id="round-btn" type="button" onclick="startRound()" disabled>Start</button>
       </div>
+      -->
     </div>
     <div class="row match" id="song-description" style="display:none; margin-top: 0.5em">
       <div class="col-md-4 my-bottom">
@@ -129,7 +134,7 @@
   <script src="js/songinfo.js"></script>
   <script src="js/songkeys.js"></script>
   <script src="js/main.js"></script>
-
+  <!-- events -->
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
   <script>
     window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
