@@ -6,7 +6,7 @@
   },
   "alexandrite":{
     "en":"Alexandrite",
-    "duration":"2:20",
+    "duration":"2:19",
     "baseRoundDuration":210
   },
   "anokumene":{
@@ -16,7 +16,7 @@
   },
   "antithese":{
     "en":"Antithese",
-    "duration":"2:25",
+    "duration":"2:24",
     "baseRoundDuration":218
   },
   "astraltale":{
@@ -31,17 +31,17 @@
   },
   "auxesia":{
     "en":"Auxesia",
-    "duration":"2:20",
-    "baseRoundDuration":210
+    "duration":"2:02",
+    "baseRoundDuration":183
   },
   "avantraze":{
     "en":"Avant Raze",
-    "duration":"2:14",
+    "duration":"2:13",
     "baseRoundDuration":201
   },
   "axiumcrisis":{
     "en":"Axium Crisis",
-    "duration":"2:30",
+    "duration":"2:31",
     "baseRoundDuration":225
   },
   "babaroque":{
@@ -61,7 +61,7 @@
   },
   "blackterritory":{
     "en":"Black Territory",
-    "duration":"2:25",
+    "duration":"2:23",
     "baseRoundDuration":218
   },
   "blaster":{
@@ -101,12 +101,12 @@
   },
   "chronostasis":{
     "en":"Chronostasis",
-    "duration":"2:13",
+    "duration":"2:14",
     "baseRoundDuration":200
   },
   "clotho":{
     "en":"Clotho and the stargazer",
-    "duration":"2:18",
+    "duration":"2:19",
     "baseRoundDuration":207
   },
   "conflict":{
@@ -116,18 +116,18 @@
   },
   "corruption":{
     "en":"Corruption",
-    "duration":"2:30",
+    "duration":"2:31",
     "baseRoundDuration":225
   },
   "crosssoul":{
     "en":"CROSS†SOUL",
-    "duration":"2:19",
+    "duration":"2:20",
     "baseRoundDuration":209
   },
   "cyaegha":{
     "en":"Cyaegha",
-    "duration":"2:25",
-    "baseRoundDuration":218
+    "duration":"2:27",
+    "baseRoundDuration":221
   },
   "cyanine":{
     "en":"cyanine",
@@ -151,7 +151,7 @@
   },
   "dataerror":{
     "en":"DataErr0r",
-    "duration":"2:05",
+    "duration":"2:06",
     "baseRoundDuration":188
   },
   "dement":{
@@ -171,8 +171,8 @@
   },
   "dreadnought":{
     "en":"Dreadnought",
-    "duration":"2:17",
-    "baseRoundDuration":206
+    "duration":"2:20",
+    "baseRoundDuration":210
   },
   "dreamgoeson":{
     "en":"Dream goes on",
@@ -196,7 +196,7 @@
   },
   "einherjar":{
     "en":"Einherjar Joker",
-    "duration":"2:18",
+    "duration":"2:17",
     "baseRoundDuration":207
   },
   "empireofwinter":{
@@ -211,7 +211,7 @@
   },
   "essenceoftwilight":{
     "en":"Essence of Twilight",
-    "duration":"2:31",
+    "duration":"2:32",
     "baseRoundDuration":227
   },
   "etherstrike":{
@@ -236,7 +236,7 @@
   },
   "filament":{
     "en":"Filament",
-    "duration":"2:22",
+    "duration":"2:23",
     "baseRoundDuration":213
   },
   "flashback":{
@@ -251,7 +251,7 @@
   },
   "fractureray":{
     "en":"Fracture Ray",
-    "duration":"2:35",
+    "duration":"2:34",
     "baseRoundDuration":233
   },
   "freefall":{
@@ -261,7 +261,7 @@
   },
   "garakuta":{
     "en":"Garakuta Doll Play",
-    "duration":"2:05",
+    "duration":"2:04",
     "baseRoundDuration":188
   },
   "genesis":{
@@ -281,7 +281,7 @@
   },
   "grievouslady":{
     "en":"Grievous Lady",
-    "duration":"2:20",
+    "duration":"2:21",
     "baseRoundDuration":210
   },
   "grimheart":{
@@ -291,8 +291,8 @@
   },
   "guardina":{
     "en":"γuarδina",
-    "duration":"2:12",
-    "baseRoundDuration":198
+    "duration":"2:30",
+    "baseRoundDuration":225
   },
   "halcyon":{
     "en":"Halcyon",
@@ -316,8 +316,8 @@
   },
   "heavenlycaress":{
     "en":"Heavenly caress",
-    "duration":"2:10",
-    "baseRoundDuration":195
+    "duration":"2:13",
+    "baseRoundDuration":202
   },
   "heavensdoor":{
     "en":"Heavensdoor",
@@ -436,8 +436,8 @@
   },
   "metallicpunisher":{
     "en":"Metallic Punisher",
-    "duration":"2:30",
-    "baseRoundDuration":225
+    "duration":"2:23",
+    "baseRoundDuration":215
   },
   "mirzam":{
     "en":"Mirzam",
@@ -556,8 +556,8 @@
   },
   "reinvent":{
     "en":"Reinvent",
-    "duration":"2:30",
-    "baseRoundDuration":225
+    "duration":"2:46",
+    "baseRoundDuration":249
   },
   "relentless":{
     "en":"Relentless",
@@ -606,8 +606,8 @@
   },
   "senkyou":{
     "en":"Senkyou",
-    "duration":"2:35",
-    "baseRoundDuration":233
+    "duration":"2:29",
+    "baseRoundDuration":224
   },
   "shadesoflight":{
     "en":"Shades of Light in a Transcendent Realm",
