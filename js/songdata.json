@@ -748,5 +748,10 @@
     "en":"Yosakura Fubuki",
     "duration":"2:12",
     "baseRoundDuration":198
+  },
+  "worldexecuteme":{
+    "en":"world.execute(me);",
+    "duration":"2:33",
+    "baseRoundDuration":230
   }
 }
