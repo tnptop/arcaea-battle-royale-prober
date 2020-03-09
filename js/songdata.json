@@ -74,6 +74,11 @@
     "duration":"2:25",
     "baseRoundDuration":218
   },
+  "blrink":{
+    "en":"BLRINK",
+    "duration":"2:43",
+    "baseRoundDuration":245
+  },
   "bookmaker":{
     "en":"Bookmaker (2D Version)",
     "duration":"2:30",
