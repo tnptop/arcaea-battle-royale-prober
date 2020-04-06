@@ -1,762 +1,2638 @@
-{
-  "aiueoon":{
-    "en":"AI[UE]OON",
-    "duration":"2:19",
-    "baseRoundDuration":209
-  },
-  "alexandrite":{
-    "en":"Alexandrite",
-    "duration":"2:19",
-    "baseRoundDuration":210
-  },
-  "anokumene":{
-    "en":"Anökumene",
-    "duration":"1:54",
-    "baseRoundDuration":171
-  },
-  "antithese":{
-    "en":"Antithese",
-    "duration":"2:24",
-    "baseRoundDuration":218
-  },
-  "astraltale":{
-    "en":"Astral tale",
-    "duration":"2:30",
-    "baseRoundDuration":225
-  },
-  "aterlbus":{
-    "en":"αterlβus",
-    "duration":"2:00",
-    "baseRoundDuration":180
-  },
-  "auxesia":{
-    "en":"Auxesia",
-    "duration":"2:02",
-    "baseRoundDuration":183
-  },
-  "avantraze":{
-    "en":"Avant Raze",
-    "duration":"2:13",
-    "baseRoundDuration":201
-  },
-  "axiumcrisis":{
-    "en":"Axium Crisis",
-    "duration":"2:31",
-    "baseRoundDuration":225
-  },
-  "babaroque":{
-    "en":"Babaroque",
-    "duration":"2:29",
-    "baseRoundDuration":224
-  },
-  "battlenoone":{
-    "en":"BATTLE NO.1",
-    "duration":"2:00",
-    "baseRoundDuration":180
-  },
-  "bethere":{
-    "en":"Be There",
-    "duration":"2:13",
-    "baseRoundDuration":200
-  },
-  "blackterritory":{
-    "en":"Black Territory",
-    "duration":"2:23",
-    "baseRoundDuration":218
-  },
-  "blaster":{
-    "en":"Blaster",
-    "duration":"2:17",
-    "baseRoundDuration":206
-  },
-  "blossoms":{
-    "en":"Blossoms",
-    "duration":"2:25",
-    "baseRoundDuration":218
-  },
-  "blrink":{
-    "en":"BLRINK",
-    "duration":"2:43",
-    "baseRoundDuration":245
-  },
-  "bookmaker":{
-    "en":"Bookmaker (2D Version)",
-    "duration":"2:30",
-    "baseRoundDuration":225
-  },
-  "brandnewworld":{
-    "en":"Brand new world",
-    "duration":"2:24",
-    "baseRoundDuration":216
-  },
-  "callmyname":{
-    "en":"Call My Name feat. Yukacco",
-    "duration":"2:28",
-    "baseRoundDuration":222
-  },
-  "carminescythe":{
-    "en":"carmine:scythe",
-    "duration":"2:26",
-    "baseRoundDuration":219
-  },
-  "chelsea":{
-    "en":"Chelsea",
-    "duration":"2:07",
-    "baseRoundDuration":191
-  },
-  "chronostasis":{
-    "en":"Chronostasis",
-    "duration":"2:14",
-    "baseRoundDuration":200
-  },
-  "clotho":{
-    "en":"Clotho and the stargazer",
-    "duration":"2:19",
-    "baseRoundDuration":207
-  },
-  "conflict":{
-    "en":"conflict",
-    "duration":"2:14",
-    "baseRoundDuration":201
-  },
-  "corruption":{
-    "en":"Corruption",
-    "duration":"2:31",
-    "baseRoundDuration":225
-  },
-  "crosssoul":{
-    "en":"CROSS†SOUL",
-    "duration":"2:20",
-    "baseRoundDuration":209
-  },
-  "cyaegha":{
-    "en":"Cyaegha",
-    "duration":"2:27",
-    "baseRoundDuration":221
-  },
-  "cyanine":{
-    "en":"cyanine",
-    "duration":"2:32",
-    "baseRoundDuration":228
-  },
-  "cyberneciacatharsis":{
-    "en":"Cybernecia Catharsis",
-    "duration":"2:15",
-    "baseRoundDuration":203
-  },
-  "dandelion":{
-    "en":"Dandelion",
-    "duration":"2:39",
-    "baseRoundDuration":239
-  },
-  "darakunosono":{
-    "en":"Illegal Paradise",
-    "duration":"2:35",
-    "baseRoundDuration":233
-  },
-  "dataerror":{
-    "en":"DataErr0r",
-    "duration":"2:06",
-    "baseRoundDuration":188
-  },
-  "dement":{
-    "en":"Dement ~after legend~",
-    "duration":"2:09",
-    "baseRoundDuration":194
-  },
-  "diode":{
-    "en":"Diode",
-    "duration":"2:18",
-    "baseRoundDuration":207
-  },
-  "dottodot":{
-    "en":"Dot to Dot feat. shully",
-    "duration":"2:12",
-    "baseRoundDuration":198
-  },
-  "dreadnought":{
-    "en":"Dreadnought",
-    "duration":"2:20",
-    "baseRoundDuration":210
-  },
-  "dreamgoeson":{
-    "en":"Dream goes on",
-    "duration":"2:27",
-    "baseRoundDuration":221
-  },
-  "dreaminattraction":{
-    "en":"Dreamin' Attraction!!",
-    "duration":"2:20",
-    "baseRoundDuration":210
-  },
-  "dropdead":{
-    "en":"dropdead",
-    "duration":"2:17",
-    "baseRoundDuration":206
-  },
-  "dxfullmetal":{
-    "en":"DX Choseinou Full Metal Shojo",
-    "duration":"1:55",
-    "baseRoundDuration":173
-  },
-  "einherjar":{
-    "en":"Einherjar Joker",
-    "duration":"2:17",
-    "baseRoundDuration":207
-  },
-  "empireofwinter":{
-    "en":"Empire of Winter",
-    "duration":"2:20",
-    "baseRoundDuration":210
-  },
-  "espebranch":{
-    "en":"LunarOrbit -believe in the Espebranch road-",
-    "duration":"2:21",
-    "baseRoundDuration":212
-  },
-  "essenceoftwilight":{
-    "en":"Essence of Twilight",
-    "duration":"2:32",
-    "baseRoundDuration":227
-  },
-  "etherstrike":{
-    "en":"Ether Strike",
-    "duration":"2:20",
-    "baseRoundDuration":210
-  },
-  "evoltex":{
-    "en":"Evoltex (poppi'n mix)",
-    "duration":"1:46",
-    "baseRoundDuration":159
-  },
-  "fairytale":{
-    "en":"Fairytale",
-    "duration":"2:02",
-    "baseRoundDuration":183
-  },
-  "fallensquare":{
-    "en":"Fallensquare",
-    "duration":"2:33",
-    "baseRoundDuration":230
-  },
-  "filament":{
-    "en":"Filament",
-    "duration":"2:23",
-    "baseRoundDuration":213
-  },
-  "flashback":{
-    "en":"Flashback",
-    "duration":"2:07",
-    "baseRoundDuration":191
-  },
-  "flyburg":{
-    "en":"Flyburg and Endroll",
-    "duration":"2:28",
-    "baseRoundDuration":222
-  },
-  "fractureray":{
-    "en":"Fracture Ray",
-    "duration":"2:34",
-    "baseRoundDuration":233
-  },
-  "freefall":{
-    "en":"FREEF4LL",
-    "duration":"2:28",
-    "baseRoundDuration":222
-  },
-  "garakuta":{
-    "en":"Garakuta Doll Play",
-    "duration":"2:04",
-    "baseRoundDuration":188
-  },
-  "genesis":{
-    "en":"Genesis",
-    "duration":"2:13",
-    "baseRoundDuration":200
-  },
-  "gloryroad":{
-    "en":"GLORY : ROAD",
-    "duration":"2:22",
-    "baseRoundDuration":213
-  },
-  "goodtek":{
-    "en":"GOODTEK (Arcaea Edit)",
-    "duration":"2:03",
-    "baseRoundDuration":185
-  },
-  "grievouslady":{
-    "en":"Grievous Lady",
-    "duration":"2:21",
-    "baseRoundDuration":210
-  },
-  "grimheart":{
-    "en":"Grimheart",
-    "duration":"2:30",
-    "baseRoundDuration":225
-  },
-  "guardina":{
-    "en":"γuarδina",
-    "duration":"2:30",
-    "baseRoundDuration":225
-  },
-  "halcyon":{
-    "en":"Halcyon",
-    "duration":"2:39",
-    "baseRoundDuration":239
-  },
-  "hallofmirrors":{
-    "en":"Hall of Mirrors",
-    "duration":"2:33",
-    "baseRoundDuration":230
-  },
-  "harutopia":{
-    "en":"Harutopia ~Utopia of Spring~",
-    "duration":"2:20",
-    "baseRoundDuration":210
-  },
-  "hearditsaid":{
-    "en":"I've heard it said",
-    "duration":"2:08",
-    "baseRoundDuration":192
-  },
-  "heavenlycaress":{
-    "en":"Heavenly caress",
-    "duration":"2:13",
-    "baseRoundDuration":202
-  },
-  "heavensdoor":{
-    "en":"Heavensdoor",
-    "duration":"2:12",
-    "baseRoundDuration":198
-  },
-  "hikari":{
-    "en":"Hikari",
-    "duration":"2:22",
-    "baseRoundDuration":213
-  },
-  "iconoclast":{
-    "en":"Iconoclast",
-    "duration":"2:06",
-    "baseRoundDuration":189
-  },
-  "ignotus":{
-    "en":"Ignotus",
-    "duration":"2:26",
-    "baseRoundDuration":219
-  },
-  "ikazuchi":{
-    "en":"Ikazuchi",
-    "duration":"2:28",
-    "baseRoundDuration":222
-  },
-  "impurebird":{
-    "en":"Impure Bird",
-    "duration":"1:56",
-    "baseRoundDuration":174
-  },
-  "infinityheaven":{
-    "en":"Infinity Heaven",
-    "duration":"2:34",
-    "baseRoundDuration":231
-  },
-  "inkarusi":{
-    "en":"inkar-usi",
-    "duration":"2:24",
-    "baseRoundDuration":216
-  },
-  "izana":{
-    "en":"IZANA",
-    "duration":"2:03",
-    "baseRoundDuration":185
-  },
-  "journey":{
-    "en":"Journey",
-    "duration":"2:14",
-    "baseRoundDuration":201
-  },
-  "kanagawa":{
-    "en":"Kanagawa Cyber Culvert",
-    "duration":"2:28",
-    "baseRoundDuration":222
-  },
-  "laqryma":{
-    "en":"La'qryma of the Wasteland",
-    "duration":"2:23",
-    "baseRoundDuration":215
-  },
-  "lethaeus":{
-    "en":"Lethaeus",
-    "duration":"2:27",
-    "baseRoundDuration":221
-  },
-  "libertas":{
-    "en":"Libertas",
-    "duration":"2:14",
-    "baseRoundDuration":201
-  },
-  "linearaccelerator":{
-    "en":"Linear Accelerator",
-    "duration":"2:05",
-    "baseRoundDuration":188
-  },
-  "lostcivilization":{
-    "en":"Lost Civilization",
-    "duration":"2:05",
-    "baseRoundDuration":188
-  },
-  "lucifer":{
-    "en":"Lucifer",
-    "duration":"2:12",
-    "baseRoundDuration":198
-  },
-  "lumia":{
-    "en":"Lumia",
-    "duration":"2:03",
-    "baseRoundDuration":185
-  },
-  "mazenine":{
-    "en":"Maze No.9",
-    "duration":"2:26",
-    "baseRoundDuration":219
-  },
-  "melodyoflove":{
-    "en":"A Wandering Melody of Love",
-    "duration":"2:11",
-    "baseRoundDuration":197
-  },
-  "memoryfactory":{
-    "en":"memoryfactory.lzh",
-    "duration":"2:11",
-    "baseRoundDuration":197
-  },
-  "memoryforest":{
-    "en":"Memory Forest",
-    "duration":"2:24",
-    "baseRoundDuration":216
-  },
-  "merlin":{
-    "en":"MERLIN",
-    "duration":"2:09",
-    "baseRoundDuration":194
-  },
-  "metallicpunisher":{
-    "en":"Metallic Punisher",
-    "duration":"2:23",
-    "baseRoundDuration":215
-  },
-  "mirzam":{
-    "en":"Mirzam",
-    "duration":"2:27",
-    "baseRoundDuration":221
-  },
-  "modelista":{
-    "en":"Modelista",
-    "duration":"2:08",
-    "baseRoundDuration":192
-  },
-  "monochromeprincess":{
-    "en":"Monochrome Princess",
-    "duration":"2:17",
-    "baseRoundDuration":206
-  },
-  "moonheart":{
-    "en":"Moonheart",
-    "duration":"2:13",
-    "baseRoundDuration":200
-  },
-  "moonlightofsandcastle":{
-    "en":"Moonlight of Sand Castle",
-    "duration":"2:26",
-    "baseRoundDuration":219
-  },
-  "nexttoyou":{
-    "en":"next to you",
-    "duration":"2:14",
-    "baseRoundDuration":201
-  },
-  "nhelv":{
-    "en":"Nhelv",
-    "duration":"2:51",
-    "baseRoundDuration":257
-  },
-  "nirvluce":{
-    "en":"Nirv lucE",
-    "duration":"2:08",
-    "baseRoundDuration":192
-  },
-  "omakeno":{
-    "en":"OMAKENO Stroke",
-    "duration":"1:56",
-    "baseRoundDuration":174
-  },
-  "onelastdrive":{
-    "en":"One Last Drive",
-    "duration":"2:24",
-    "baseRoundDuration":216
-  },
-  "oracle":{
-    "en":"Oracle",
-    "duration":"2:23",
-    "baseRoundDuration":215
-  },
-  "ouroboros":{
-    "en":"ouroboros -twin stroke of the end-",
-    "duration":"2:29",
-    "baseRoundDuration":224
-  },
-  "paradise":{
-    "en":"Paradise",
-    "duration":"2:29",
-    "baseRoundDuration":224
-  },
-  "particlearts":{
-    "en":"Particle Arts",
-    "duration":"2:27",
-    "baseRoundDuration":221
-  },
-  "partyvinyl":{
-    "en":"Party Vinyl",
-    "duration":"1:50",
-    "baseRoundDuration":165
-  },
-  "phantasia":{
-    "en":"Phantasia",
-    "duration":"2:38",
-    "baseRoundDuration":237
-  },
-  "pragmatism":{
-    "en":"PRAGMATISM",
-    "duration":"2:00",
-    "baseRoundDuration":180
-  },
-  "purgatorium":{
-    "en":"Purgatorium",
-    "duration":"2:31",
-    "baseRoundDuration":227
-  },
-  "qualia":{
-    "en":"qualia -ideaesthesia-",
-    "duration":"2:28",
-    "baseRoundDuration":222
-  },
-  "quon":{
-    "en":"Quon",
-    "duration":"2:23",
-    "baseRoundDuration":215
-  },
-  "rabbitintheblackroom":{
-    "en":"Rabbit In The Black Room",
-    "duration":"2:12",
-    "baseRoundDuration":198
-  },
-  "reconstruction":{
-    "en":"REconstruction",
-    "duration":"1:57",
-    "baseRoundDuration":176
-  },
-  "redandblue":{
-    "en":"Red and Blue",
-    "duration":"2:01",
-    "baseRoundDuration":182
-  },
-  "reinvent":{
-    "en":"Reinvent",
-    "duration":"2:46",
-    "baseRoundDuration":249
-  },
-  "relentless":{
-    "en":"Relentless",
-    "duration":"2:18",
-    "baseRoundDuration":207
-  },
-  "revixy":{
-    "en":"ReviXy",
-    "duration":"2:38",
-    "baseRoundDuration":237
-  },
-  "ringedgenesis":{
-    "en":"Ringed Genesis",
-    "duration":"2:14",
-    "baseRoundDuration":201
-  },
-  "rise":{
-    "en":"Rise",
-    "duration":"2:23",
-    "baseRoundDuration":215
-  },
-  "romancewars":{
-    "en":"Romance Wars",
-    "duration":"2:05",
-    "baseRoundDuration":188
-  },
-  "rugie":{
-    "en":"Rugie",
-    "duration":"2:24",
-    "baseRoundDuration":216
-  },
-  "saikyostronger":{
-    "en":"SAIKYO STRONGER",
-    "duration":"2:25",
-    "baseRoundDuration":218
-  },
-  "sayonarahatsukoi":{
-    "en":"Sayonara Hatsukoi",
-    "duration":"1:55",
-    "baseRoundDuration":173
-  },
-  "scarletlance":{
-    "en":"Scarlet Lance",
-    "duration":"2:09",
-    "baseRoundDuration":194
-  },
-  "senkyou":{
-    "en":"Senkyou",
-    "duration":"2:29",
-    "baseRoundDuration":224
-  },
-  "shadesoflight":{
-    "en":"Shades of Light in a Transcendent Realm",
-    "duration":"2:31",
-    "baseRoundDuration":227
-  },
-  "sheriruth":{
-    "en":"Sheriruth",
-    "duration":"2:17",
-    "baseRoundDuration":206
-  },
-  "silentrush":{
-    "en":"Silent Rush",
-    "duration":"2:38",
-    "baseRoundDuration":237
-  },
-  "singularity":{
-    "en":"Singularity",
-    "duration":"2:06",
-    "baseRoundDuration":189
-  },
-  "snowwhite":{
-    "en":"Snow White",
-    "duration":"2:28",
-    "baseRoundDuration":222
-  },
-  "solitarydream":{
-    "en":"Solitary Dream",
-    "duration":"2:53",
-    "baseRoundDuration":260
-  },
-  "soundwitch":{
-    "en":"SOUNDWiTCH",
-    "duration":"1:47",
-    "baseRoundDuration":161
-  },
-  "specta":{
-    "en":"Specta",
-    "duration":"2:16",
-    "baseRoundDuration":204
-  },
-  "stager":{
-    "en":"STAGER (ALL STAGE CLEAR)",
-    "duration":"2:32",
-    "baseRoundDuration":228
-  },
-  "strongholds":{
-    "en":"Strongholds",
-    "duration":"2:17",
-    "baseRoundDuration":206
-  },
-  "sulfur":{
-    "en":"Sulfur",
-    "duration":"2:23",
-    "baseRoundDuration":215
-  },
-  "suomi":{
-    "en":"Suomi",
-    "duration":"2:09",
-    "baseRoundDuration":194
-  },
-  "supernova":{
-    "en":"SUPERNOVA",
-    "duration":"2:38",
-    "baseRoundDuration":237
-  },
-  "surrender":{
-    "en":"Surrender",
-    "duration":"2:30",
-    "baseRoundDuration":225
-  },
-  "syro":{
-    "en":"Syro",
-    "duration":"2:21",
-    "baseRoundDuration":212
-  },
-  "themessage":{
-    "en":"The Message",
-    "duration":"2:21",
-    "baseRoundDuration":212
-  },
-  "tiemedowngently":{
-    "en":"Tie me down gently",
-    "duration":"2:15",
-    "baseRoundDuration":203
-  },
-  "tiferet":{
-    "en":"Tiferet",
-    "duration":"2:28",
-    "baseRoundDuration":222
-  },
-  "trappola":{
-    "en":"trappola bewitching",
-    "duration":"2:00",
-    "baseRoundDuration":180
-  },
-  "valhallazero":{
-    "en":"Valhalla:0",
-    "duration":"2:22",
-    "baseRoundDuration":213
-  },
-  "vector":{
-    "en":"VECTOЯ",
-    "duration":"2:21",
-    "baseRoundDuration":212
-  },
-  "vexaria":{
-    "en":"Vexaria",
-    "duration":"2:09",
-    "baseRoundDuration":194
-  },
-  "viciousheroism":{
-    "en":"Vicious Heroism",
-    "duration":"2:25",
-    "baseRoundDuration":218
-  },
-  "vindication":{
-    "en":"Vindication",
-    "duration":"2:30",
-    "baseRoundDuration":225
-  },
-  "viyella":{
-    "en":"cry of viyella",
-    "duration":"2:07",
-    "baseRoundDuration":191
-  },
-  "worldvanquisher":{
-    "en":"World Vanquisher",
-    "duration":"2:41",
-    "baseRoundDuration":242
-  },
-  "yourvoiceso":{
-    "en":"Your voice so... feat. Such",
-    "duration":"2:30",
-    "baseRoundDuration":225
-  },
-  "yozakurafubuki":{
-    "en":"Yosakura Fubuki",
-    "duration":"2:12",
-    "baseRoundDuration":198
-  },
-  "worldexecuteme":{
-    "en":"world.execute(me);",
-    "duration":"2:33",
-    "baseRoundDuration":230
+[
+  {
+    "id": "sayonarahatsukoi",
+    "en": "Sayonara Hatsukoi",
+    "length": 115,
+    "difficulty": [
+      1,
+      4,
+      6
+    ],
+    "constant": [
+      1.5,
+      4.5,
+      6.5
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "lostcivilization",
+    "en": "Lost Civilization",
+    "length": 125,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4,
+      7.4,
+      9.5
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "goodtek",
+    "en": "GOODTEK (Arcaea Edit)",
+    "length": 123,
+    "difficulty": [
+      4,
+      6,
+      9
+    ],
+    "constant": [
+      3.5,
+      6.5,
+      9.3
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "viyella",
+    "en": "cry of viyella",
+    "length": 127,
+    "difficulty": [
+      3,
+      6,
+      8
+    ],
+    "constant": [
+      3.5,
+      6,
+      8.7
+    ],
+    "side": "conflict",
+    "pack": "Eternal Core"
+  },
+  {
+    "id": "rise",
+    "en": "Rise",
+    "length": 143,
+    "difficulty": [
+      2,
+      4,
+      7
+    ],
+    "constant": [
+      2.5,
+      4,
+      7.7
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "lucifer",
+    "en": "Lucifer",
+    "length": 132,
+    "difficulty": [
+      3,
+      5,
+      8
+    ],
+    "constant": [
+      3.5,
+      5.5,
+      8.3
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "fairytale",
+    "en": "Fairytale",
+    "length": 122,
+    "difficulty": [
+      1,
+      3,
+      7
+    ],
+    "constant": [
+      1,
+      3.5,
+      7.2
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "hearditsaid",
+    "en": "I've heard it said",
+    "length": 128,
+    "difficulty": [
+      3,
+      6,
+      8
+    ],
+    "constant": [
+      3.5,
+      6,
+      8.2
+    ],
+    "side": "light",
+    "pack": "Eternal Core"
+  },
+  {
+    "id": "babaroque",
+    "en": "Babaroque",
+    "length": 149,
+    "difficulty": [
+      3,
+      6,
+      8
+    ],
+    "constant": [
+      3,
+      6.5,
+      8.7
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "memoryfactory",
+    "en": "memoryfactory.lzh",
+    "length": 131,
+    "difficulty": [
+      2,
+      5,
+      8
+    ],
+    "constant": [
+      2.5,
+      5.5,
+      8.8
+    ],
+    "side": "light",
+    "pack": "Eternal Core"
+  },
+  {
+    "id": "snowwhite",
+    "en": "Snow White",
+    "length": 148,
+    "difficulty": [
+      2,
+      5,
+      8
+    ],
+    "constant": [
+      2.5,
+      5,
+      8.6
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "relentless",
+    "en": "Relentless",
+    "length": 138,
+    "difficulty": [
+      4,
+      6,
+      8
+    ],
+    "constant": [
+      4.5,
+      6.5,
+      8.1
+    ],
+    "side": "conflict",
+    "pack": "Eternal Core"
+  },
+  {
+    "id": "shadesoflight",
+    "en": "Shades of Light in a Transcendent Realm",
+    "length": 151,
+    "difficulty": [
+      3,
+      6,
+      8
+    ],
+    "constant": [
+      3,
+      6,
+      8.4
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "vexaria",
+    "en": "Vexaria",
+    "length": 129,
+    "difficulty": [
+      2,
+      5,
+      7
+    ],
+    "constant": [
+      2.5,
+      5,
+      7.4
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "essenceoftwilight",
+    "en": "Essence of Twilight",
+    "length": 152,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4.5,
+      7,
+      9
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "qualia",
+    "en": "qualia -ideaesthesia-",
+    "length": 148,
+    "difficulty": [
+      5,
+      7,
+      9
+    ],
+    "constant": [
+      4.5,
+      7.4,
+      9.2
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "pragmatism",
+    "en": "PRAGMATISM",
+    "length": 120,
+    "difficulty": [
+      4,
+      8,
+      9.5
+    ],
+    "constant": [
+      4.5,
+      8.2,
+      10.1
+    ],
+    "side": "light",
+    "pack": "Eternal Core"
+  },
+  {
+    "id": "sheriruth",
+    "en": "Sheriruth",
+    "length": 137,
+    "difficulty": [
+      5,
+      7,
+      9.5
+    ],
+    "constant": [
+      5.5,
+      7.8,
+      10.6
+    ],
+    "side": "conflict",
+    "pack": "Eternal Core"
+  },
+  {
+    "id": "lumia",
+    "en": "Lumia",
+    "length": 123,
+    "difficulty": [
+      3,
+      6,
+      8
+    ],
+    "constant": [
+      3,
+      6.5,
+      8.5
+    ],
+    "side": "light",
+    "pack": "Eternal Core"
+  },
+  {
+    "id": "dement",
+    "en": "Dement ~after legend~",
+    "length": 129,
+    "difficulty": [
+      3,
+      6,
+      7
+    ],
+    "constant": [
+      3.5,
+      6,
+      7.9
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "dandelion",
+    "en": "Dandelion",
+    "length": 159,
+    "difficulty": [
+      2,
+      6,
+      8
+    ],
+    "constant": [
+      2.5,
+      5.5,
+      8.6
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "anokumene",
+    "en": "Anökumene",
+    "length": 114,
+    "difficulty": [
+      2,
+      6,
+      9
+    ],
+    "constant": [
+      2.5,
+      6.5,
+      9.2
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "infinityheaven",
+    "en": "Infinity Heaven",
+    "length": 154,
+    "difficulty": [
+      1,
+      5,
+      7
+    ],
+    "constant": [
+      1.5,
+      5.5,
+      7.6
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "partyvinyl",
+    "en": "Party Vinyl",
+    "length": 110,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4,
+      7.6,
+      9.8
+    ],
+    "side": "light",
+    "pack": "Crimson Solace"
+  },
+  {
+    "id": "flashback",
+    "en": "Flashback",
+    "length": 127,
+    "difficulty": [
+      2,
+      5,
+      8
+    ],
+    "constant": [
+      2,
+      5,
+      8.5
+    ],
+    "side": "light",
+    "pack": "Crimson Solace"
+  },
+  {
+    "id": "flyburg",
+    "en": "Flyburg and Endroll",
+    "length": 148,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3,
+      6,
+      9.2
+    ],
+    "side": "light",
+    "pack": "Crimson Solace"
+  },
+  {
+    "id": "nirvluce",
+    "en": "Nirv lucE",
+    "length": 128,
+    "difficulty": [
+      2,
+      7,
+      9.5
+    ],
+    "constant": [
+      2.5,
+      7.5,
+      10.3
+    ],
+    "side": "light",
+    "pack": "Crimson Solace"
+  },
+  {
+    "id": "paradise",
+    "en": "Paradise",
+    "length": 149,
+    "difficulty": [
+      1,
+      4,
+      7
+    ],
+    "constant": [
+      1,
+      4,
+      7.8
+    ],
+    "side": "light",
+    "pack": "Crimson Solace"
+  },
+  {
+    "id": "brandnewworld",
+    "en": "Brand new world",
+    "length": 144,
+    "difficulty": [
+      2,
+      4,
+      7
+    ],
+    "constant": [
+      2,
+      4,
+      7.9
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "dataerror",
+    "en": "DataErr0r",
+    "length": 126,
+    "difficulty": [
+      3,
+      7,
+      9
+    ],
+    "constant": [
+      3,
+      7.5,
+      9.5
+    ],
+    "side": "conflict",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "crosssoul",
+    "en": "CROSS†SOUL",
+    "length": 140,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4,
+      7.6,
+      9.6
+    ],
+    "side": "conflict",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "yourvoiceso",
+    "en": "Your voice so... feat. Such",
+    "length": 150,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3.5,
+      6.5,
+      9.4
+    ],
+    "side": "light",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "chronostasis",
+    "en": "Chronostasis",
+    "length": 134,
+    "difficulty": [
+      3,
+      7,
+      9
+    ],
+    "constant": [
+      3.5,
+      7.5,
+      9.1
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "kanagawa",
+    "en": "Kanagawa Cyber Culvert",
+    "length": 148,
+    "difficulty": [
+      1,
+      5,
+      9
+    ],
+    "constant": [
+      1,
+      5.5,
+      9
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "moonlightofsandcastle",
+    "en": "Moonlight of Sand Castle",
+    "length": 146,
+    "difficulty": [
+      1,
+      5,
+      7
+    ],
+    "constant": [
+      1.5,
+      5,
+      7.7
+    ],
+    "side": "light",
+    "pack": "Dynamix"
+  },
+  {
+    "id": "reconstruction",
+    "en": "REconstruction",
+    "length": 117,
+    "difficulty": [
+      2,
+      6,
+      8
+    ],
+    "constant": [
+      2.5,
+      6,
+      8.7
+    ],
+    "side": "light",
+    "pack": "Dynamix"
+  },
+  {
+    "id": "evoltex",
+    "en": "Evoltex (poppi'n mix)",
+    "length": 106,
+    "difficulty": [
+      2,
+      7,
+      8
+    ],
+    "constant": [
+      2,
+      7.1,
+      8.9
+    ],
+    "side": "light",
+    "pack": "Dynamix"
+  },
+  {
+    "id": "oracle",
+    "en": "Oracle",
+    "length": 143,
+    "difficulty": [
+      3,
+      5,
+      9
+    ],
+    "constant": [
+      3,
+      5.5,
+      9.3
+    ],
+    "side": "conflict",
+    "pack": "Dynamix"
+  },
+  {
+    "id": "aterlbus",
+    "en": "αterlβus",
+    "length": 120,
+    "difficulty": [
+      4,
+      7,
+      9.5
+    ],
+    "constant": [
+      4,
+      7.3,
+      10.5
+    ],
+    "side": "conflict",
+    "pack": "Dynamix"
+  },
+  {
+    "id": "clotho",
+    "en": "Clotho and the stargazer",
+    "length": 139,
+    "difficulty": [
+      2,
+      5,
+      7
+    ],
+    "constant": [
+      2,
+      5,
+      7.5
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "impurebird",
+    "en": "Impure Bird",
+    "length": 116,
+    "difficulty": [
+      2,
+      5,
+      9
+    ],
+    "constant": [
+      2,
+      5.5,
+      9.5
+    ],
+    "side": "light",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "ignotus",
+    "en": "Ignotus",
+    "length": 146,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3.5,
+      6.5,
+      9.7
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "lethaeus",
+    "en": "Lethaeus",
+    "length": 147,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3.5,
+      6.5,
+      9.5
+    ],
+    "side": "conflict",
+    "pack": "Ambivalent Vision"
+  },
+  {
+    "id": "romancewars",
+    "en": "Romance Wars",
+    "length": 125,
+    "difficulty": [
+      1,
+      4,
+      7
+    ],
+    "constant": [
+      1,
+      4,
+      7.4
+    ],
+    "side": "light",
+    "pack": "Ambivalent Vision"
+  },
+  {
+    "id": "blossoms",
+    "en": "Blossoms",
+    "length": 145,
+    "difficulty": [
+      1,
+      4,
+      7
+    ],
+    "constant": [
+      1,
+      4,
+      7.6
+    ],
+    "side": "light",
+    "pack": "Ambivalent Vision"
+  },
+  {
+    "id": "moonheart",
+    "en": "Moonheart",
+    "length": 133,
+    "difficulty": [
+      2,
+      5,
+      8
+    ],
+    "constant": [
+      2.5,
+      5.5,
+      8.5
+    ],
+    "side": "light",
+    "pack": "Ambivalent Vision"
+  },
+  {
+    "id": "genesis",
+    "en": "Genesis",
+    "length": 133,
+    "difficulty": [
+      2,
+      5,
+      8
+    ],
+    "constant": [
+      2,
+      5.5,
+      8.4
+    ],
+    "side": "conflict",
+    "pack": "Ambivalent Vision"
+  },
+  {
+    "id": "harutopia",
+    "en": "Harutopia ~Utopia of Spring~",
+    "length": 140,
+    "difficulty": [
+      1,
+      4,
+      8
+    ],
+    "constant": [
+      1,
+      4.5,
+      8.6
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "auxesia",
+    "en": "Auxesia",
+    "length": 122,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      4.5,
+      7.1,
+      9.4
+    ],
+    "side": "light",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "rabbitintheblackroom",
+    "en": "Rabbit In The Black Room",
+    "length": 132,
+    "difficulty": [
+      2,
+      5,
+      8
+    ],
+    "constant": [
+      2.5,
+      5.5,
+      8.5
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "modelista",
+    "en": "Modelista",
+    "length": 128,
+    "difficulty": [
+      3,
+      7,
+      9
+    ],
+    "constant": [
+      3.5,
+      7.4,
+      10
+    ],
+    "side": "light",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "soundwitch",
+    "en": "SOUNDWiTCH",
+    "length": 107,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3.5,
+      6.5,
+      9.9
+    ],
+    "side": "conflict",
+    "pack": "Vicious Labyrinth"
+  },
+  {
+    "id": "trappola",
+    "en": "trappola bewitching",
+    "length": 120,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3,
+      6,
+      10
+    ],
+    "side": "conflict",
+    "pack": "Vicious Labyrinth"
+  },
+  {
+    "id": "iconoclast",
+    "en": "Iconoclast",
+    "length": 126,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4,
+      7.1,
+      9.4
+    ],
+    "side": "conflict",
+    "pack": "Vicious Labyrinth"
+  },
+  {
+    "id": "conflict",
+    "en": "conflict",
+    "length": 134,
+    "difficulty": [
+      4,
+      7,
+      9.5
+    ],
+    "constant": [
+      4.5,
+      7.6,
+      10.2
+    ],
+    "side": "conflict",
+    "pack": "Vicious Labyrinth"
+  },
+  {
+    "id": "axiumcrisis",
+    "en": "Axium Crisis",
+    "length": 151,
+    "difficulty": [
+      5,
+      8,
+      9.5
+    ],
+    "constant": [
+      5.5,
+      8.3,
+      10.6
+    ],
+    "side": "conflict",
+    "pack": "Vicious Labyrinth"
+  },
+  {
+    "id": "grievouslady",
+    "en": "Grievous Lady",
+    "length": 141,
+    "difficulty": [
+      6,
+      9,
+      10
+    ],
+    "constant": [
+      6.5,
+      9.2,
+      11.2
+    ],
+    "side": "conflict",
+    "pack": "Vicious Labyrinth"
+  },
+  {
+    "id": "dreaminattraction",
+    "en": "Dreamin' Attraction!!",
+    "length": 140,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4.5,
+      7.6,
+      9.8
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "redandblue",
+    "en": "Red and Blue",
+    "length": 121,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4,
+      7.7,
+      9,
+      7
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "onelastdrive",
+    "en": "One Last Drive",
+    "length": 144,
+    "difficulty": [
+      2,
+      5,
+      8
+    ],
+    "constant": [
+      2.5,
+      5.5,
+      8
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "surrender",
+    "en": "Surrender",
+    "length": 150,
+    "difficulty": [
+      3,
+      6,
+      8
+    ],
+    "constant": [
+      3,
+      6.5,
+      8.8
+    ],
+    "side": "light",
+    "pack": "Stellights"
+  },
+  {
+    "id": "yozakurafubuki",
+    "en": "Yosakura Fubuki",
+    "length": 132,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4.5,
+      7.2,
+      9.4
+    ],
+    "side": "light",
+    "pack": "Stellights"
+  },
+  {
+    "id": "cyanine",
+    "en": "cyanine",
+    "length": 152,
+    "difficulty": [
+      4,
+      7,
+      9.5
+    ],
+    "constant": [
+      4,
+      7.2,
+      10.5
+    ],
+    "side": "conflict",
+    "pack": "Lanota"
+  },
+  {
+    "id": "dreamgoeson",
+    "en": "Dream goes on",
+    "length": 147,
+    "difficulty": [
+      1,
+      5,
+      7
+    ],
+    "constant": [
+      1.5,
+      5,
+      7.5
+    ],
+    "side": "light",
+    "pack": "Lanota"
+  },
+  {
+    "id": "journey",
+    "en": "Journey",
+    "length": 134,
+    "difficulty": [
+      3,
+      6,
+      8
+    ],
+    "constant": [
+      3,
+      6,
+      8.6
+    ],
+    "side": "light",
+    "pack": "Lanota"
+  },
+  {
+    "id": "specta",
+    "en": "Specta",
+    "length": 136,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3.5,
+      6.5,
+      9.5
+    ],
+    "side": "light",
+    "pack": "Lanota"
+  },
+  {
+    "id": "quon",
+    "en": "Quon",
+    "length": 143,
+    "difficulty": [
+      2,
+      6,
+      9
+    ],
+    "constant": [
+      4,
+      6.5,
+      9.7
+    ],
+    "side": "light",
+    "pack": "Lanota"
+  },
+  {
+    "id": "syro",
+    "en": "Syro",
+    "length": 141,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3.5,
+      6.5,
+      9.5
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "reinvent",
+    "en": "Reinvent",
+    "length": 166,
+    "difficulty": [
+      2,
+      6,
+      8
+    ],
+    "constant": [
+      2.5,
+      6.5,
+      8.6
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "silentrush",
+    "en": "Silent Rush",
+    "length": 158,
+    "difficulty": [
+      2,
+      5,
+      8
+    ],
+    "constant": [
+      2.5,
+      5,
+      8.4
+    ],
+    "side": "conflict",
+    "pack": "Binary Enfold"
+  },
+  {
+    "id": "singularity",
+    "en": "Singularity",
+    "length": 126,
+    "difficulty": [
+      4,
+      7,
+      9.5
+    ],
+    "constant": [
+      4.5,
+      7.5,
+      10.4
+    ],
+    "side": "conflict",
+    "pack": "Binary Enfold"
+  },
+  {
+    "id": "memoryforest",
+    "en": "Memory Forest",
+    "length": 144,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3.5,
+      6,
+      9.8
+    ],
+    "side": "light",
+    "pack": "Binary Enfold"
+  },
+  {
+    "id": "strongholds",
+    "en": "Strongholds",
+    "length": 137,
+    "difficulty": [
+      2,
+      5,
+      9
+    ],
+    "constant": [
+      2.5,
+      5,
+      9.1
+    ],
+    "side": "conflict",
+    "pack": "Binary Enfold"
+  },
+  {
+    "id": "nexttoyou",
+    "en": "next to you",
+    "length": 134,
+    "difficulty": [
+      4,
+      7,
+      8
+    ],
+    "constant": [
+      4.5,
+      7.1,
+      8.7
+    ],
+    "side": "light",
+    "pack": "Binary Enfold"
+  },
+  {
+    "id": "metallicpunisher",
+    "en": "Metallic Punisher",
+    "length": 143,
+    "difficulty": [
+      3,
+      7,
+      9.5
+    ],
+    "constant": [
+      3,
+      7.1,
+      10.3
+    ],
+    "side": "conflict",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "blaster",
+    "en": "Blaster",
+    "length": 137,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4,
+      7,
+      9.5
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "guardina",
+    "en": "γuarδina",
+    "length": 150,
+    "difficulty": [
+      4,
+      7,
+      9.5
+    ],
+    "constant": [
+      4,
+      7.4,
+      10.5
+    ],
+    "side": "light",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "carminescythe",
+    "en": "carmine:scythe",
+    "length": 146,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4,
+      7.6,
+      9.6
+    ],
+    "side": "conflict",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "bethere",
+    "en": "Be There",
+    "length": 133,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4,
+      7.5,
+      9.5
+    ],
+    "side": "light",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "cyberneciacatharsis",
+    "en": "Cybernecia Catharsis",
+    "length": 135,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4,
+      7.2,
+      9.8
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "callmyname",
+    "en": "Call My Name feat. Yukacco",
+    "length": 148,
+    "difficulty": [
+      3,
+      6,
+      8
+    ],
+    "constant": [
+      3.5,
+      6,
+      8.8
+    ],
+    "side": "light",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "inkarusi",
+    "en": "inkar-usi",
+    "length": 144,
+    "difficulty": [
+      2,
+      4,
+      7
+    ],
+    "constant": [
+      2,
+      4,
+      7.8
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "mazenine",
+    "en": "Maze No.9",
+    "length": 146,
+    "difficulty": [
+      3,
+      3,
+      8
+    ],
+    "constant": [
+      3,
+      3.5,
+      8.9
+    ],
+    "side": "light",
+    "pack": "Luminous Sky"
+  },
+  {
+    "id": "themessage",
+    "en": "The Message",
+    "length": 141,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3,
+      6.5,
+      9.7
+    ],
+    "side": "light",
+    "pack": "Luminous Sky"
+  },
+  {
+    "id": "sulfur",
+    "en": "Sulfur",
+    "length": 143,
+    "difficulty": [
+      4,
+      6,
+      9
+    ],
+    "constant": [
+      4,
+      6,
+      9.8
+    ],
+    "side": "light",
+    "pack": "Luminous Sky"
+  },
+  {
+    "id": "halcyon",
+    "en": "Halcyon",
+    "length": 159,
+    "difficulty": [
+      5,
+      8,
+      9.5
+    ],
+    "constant": [
+      5.5,
+      8.5,
+      10.7
+    ],
+    "side": "light",
+    "pack": "Luminous Sky"
+  },
+  {
+    "id": "etherstrike",
+    "en": "Ether Strike",
+    "length": 140,
+    "difficulty": [
+      5,
+      8,
+      9.5
+    ],
+    "constant": [
+      5.5,
+      8.2,
+      10.2
+    ],
+    "side": "light",
+    "pack": "Luminous Sky"
+  },
+  {
+    "id": "fractureray",
+    "en": "Fracture Ray",
+    "length": 154,
+    "difficulty": [
+      6,
+      9,
+      10
+    ],
+    "constant": [
+      6,
+      9.2,
+      11.1
+    ],
+    "side": "light",
+    "pack": "Luminous Sky"
+  },
+  {
+    "id": "suomi",
+    "en": "Suomi",
+    "length": 129,
+    "difficulty": [
+      2,
+      5,
+      7
+    ],
+    "constant": [
+      2,
+      5,
+      7.7
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "bookmaker",
+    "en": "Bookmaker (2D Version)",
+    "length": 150,
+    "difficulty": [
+      4,
+      6,
+      8
+    ],
+    "constant": [
+      4.5,
+      6.5,
+      8.3
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "darakunosono",
+    "en": "Illegal Paradise",
+    "length": 155,
+    "difficulty": [
+      2,
+      7,
+      9
+    ],
+    "constant": [
+      2,
+      7.5,
+      9.8
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "dropdead",
+    "en": "dropdead",
+    "length": 137,
+    "difficulty": [
+      1,
+      9,
+      8
+    ],
+    "constant": [
+      1.5,
+      9.5,
+      9.1
+    ],
+    "side": "conflict",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "fallensquare",
+    "en": "Fallensquare",
+    "length": 153,
+    "difficulty": [
+      3,
+      7,
+      9
+    ],
+    "constant": [
+      3,
+      6.5,
+      9.8
+    ],
+    "side": "conflict",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "nhelv",
+    "en": "Nhelv",
+    "length": 171,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3,
+      7,
+      9.8
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "espebranch",
+    "en": "LunarOrbit -believe in the Espebranch road-",
+    "length": 141,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3.5,
+      6,
+      9.4
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "purgatorium",
+    "en": "Purgatorium",
+    "length": 151,
+    "difficulty": [
+      2,
+      6,
+      8
+    ],
+    "constant": [
+      2.5,
+      6,
+      8.4
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "hikari",
+    "en": "Hikari",
+    "length": 142,
+    "difficulty": [
+      2,
+      6,
+      8
+    ],
+    "constant": [
+      2.5,
+      6,
+      8.3
+    ],
+    "side": "conflict",
+    "pack": "Tone Sphere"
+  },
+  {
+    "id": "stager",
+    "en": "STAGER (ALL STAGE CLEAR)",
+    "length": 152,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3,
+      6.5,
+      9.2
+    ],
+    "side": "light",
+    "pack": "Tone Sphere"
+  },
+  {
+    "id": "hallofmirrors",
+    "en": "Hall of Mirrors",
+    "length": 153,
+    "difficulty": [
+      3,
+      5,
+      8
+    ],
+    "constant": [
+      3,
+      5.5,
+      8.2
+    ],
+    "side": "conflict",
+    "pack": "Tone Sphere"
+  },
+  {
+    "id": "linearaccelerator",
+    "en": "Linear Accelerator",
+    "length": 125,
+    "difficulty": [
+      2,
+      6,
+      9
+    ],
+    "constant": [
+      2.5,
+      6.5,
+      9.6
+    ],
+    "side": "light",
+    "pack": "Tone Sphere"
+  },
+  {
+    "id": "tiferet",
+    "en": "Tiferet",
+    "length": 148,
+    "difficulty": [
+      4,
+      7,
+      9.5
+    ],
+    "constant": [
+      4.5,
+      7.7,
+      10.5
+    ],
+    "side": "conflict",
+    "pack": "Tone Sphere"
+  },
+  {
+    "id": "alexandrite",
+    "en": "Alexandrite",
+    "length": 139,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4.5,
+      7.3,
+      9.9
+    ],
+    "side": "conflict",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "rugie",
+    "en": "Rugie",
+    "length": 144,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3,
+      6,
+      9
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "astraltale",
+    "en": "Astral tale",
+    "length": 150,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4.5,
+      7.1,
+      9.4
+    ],
+    "side": "conflict",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "phantasia",
+    "en": "Phantasia",
+    "length": 158,
+    "difficulty": [
+      4,
+      5,
+      9
+    ],
+    "constant": [
+      4,
+      5.5,
+      9.2
+    ],
+    "side": "light",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "empireofwinter",
+    "en": "Empire of Winter",
+    "length": 140,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3.5,
+      6.5,
+      9
+    ],
+    "side": "light",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "merlin",
+    "en": "MERLIN",
+    "length": 129,
+    "difficulty": [
+      3,
+      5,
+      8
+    ],
+    "constant": [
+      3,
+      5.5,
+      8.5
+    ],
+    "side": "light",
+    "pack": "Groove Coaster"
+  },
+  {
+    "id": "dxfullmetal",
+    "en": "DX Choseinou Full Metal Shojo",
+    "length": 115,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3,
+      6,
+      9.7
+    ],
+    "side": "light",
+    "pack": "Groove Coaster"
+  },
+  {
+    "id": "omakeno",
+    "en": "OMAKENO Stroke",
+    "length": 116,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3,
+      6.5,
+      9.6
+    ],
+    "side": "conflict",
+    "pack": "Groove Coaster"
+  },
+  {
+    "id": "scarletlance",
+    "en": "Scarlet Lance",
+    "length": 129,
+    "difficulty": [
+      4,
+      7,
+      9.5
+    ],
+    "constant": [
+      4,
+      7,
+      10.3
+    ],
+    "side": "light",
+    "pack": "Groove Coaster"
+  },
+  {
+    "id": "ouroboros",
+    "en": "ouroboros -twin stroke of the end-",
+    "length": 149,
+    "difficulty": [
+      4,
+      7,
+      9.5
+    ],
+    "constant": [
+      4.5,
+      7.4,
+      10.6
+    ],
+    "side": "conflict",
+    "pack": "Groove Coaster"
+  },
+  {
+    "id": "libertas",
+    "en": "Libertas",
+    "length": 134,
+    "difficulty": [
+      3,
+      5,
+      9
+    ],
+    "constant": [
+      3.5,
+      5.5,
+      9.2
+    ],
+    "side": "light",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "solitarydream",
+    "en": "Solitary Dream",
+    "length": 173,
+    "difficulty": [
+      4,
+      7,
+      8
+    ],
+    "constant": [
+      4,
+      7.2,
+      8.4
+    ],
+    "side": "light",
+    "pack": "Eternal Core"
+  },
+  {
+    "id": "antithese",
+    "en": "Antithese",
+    "length": 144,
+    "difficulty": [
+      2,
+      5,
+      8
+    ],
+    "constant": [
+      2,
+      5,
+      8.8
+    ],
+    "side": "conflict",
+    "pack": "Absolute Reason"
+  },
+  {
+    "id": "corruption",
+    "en": "Corruption",
+    "length": 151,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3,
+      6.5,
+      9.7
+    ],
+    "side": "conflict",
+    "pack": "Absolute Reason"
+  },
+  {
+    "id": "blackterritory",
+    "en": "Black Territory",
+    "length": 143,
+    "difficulty": [
+      3,
+      7,
+      9
+    ],
+    "constant": [
+      3,
+      7.1,
+      9.5
+    ],
+    "side": "conflict",
+    "pack": "Absolute Reason"
+  },
+  {
+    "id": "viciousheroism",
+    "en": "Vicious Heroism",
+    "length": 145,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4,
+      7.3,
+      10
+    ],
+    "side": "conflict",
+    "pack": "Absolute Reason"
+  },
+  {
+    "id": "cyaegha",
+    "en": "Cyaegha",
+    "length": 147,
+    "difficulty": [
+      5,
+      8,
+      9.5
+    ],
+    "constant": [
+      5.5,
+      8.1,
+      10.8
+    ],
+    "side": "conflict",
+    "pack": "Absolute Reason"
+  },
+  {
+    "id": "revixy",
+    "en": "ReviXy",
+    "length": 158,
+    "difficulty": [
+      3,
+      6,
+      8
+    ],
+    "constant": [
+      3,
+      6,
+      8.9
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "grimheart",
+    "en": "Grimheart",
+    "length": 150,
+    "difficulty": [
+      2,
+      5,
+      8
+    ],
+    "constant": [
+      2.5,
+      5,
+      8.6
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "vector",
+    "en": "VECTOЯ",
+    "length": 141,
+    "difficulty": [
+      3,
+      7,
+      9
+    ],
+    "constant": [
+      3,
+      7,
+      9.5
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "supernova",
+    "en": "SUPERNOVA",
+    "length": 158,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3,
+      6,
+      9.7
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "dottodot",
+    "en": "Dot to Dot feat. shully",
+    "length": 132,
+    "difficulty": [
+      3,
+      6,
+      8
+    ],
+    "constant": [
+      3,
+      6,
+      8.7
+    ],
+    "side": "light",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "garakuta",
+    "en": "Garakuta Doll Play",
+    "length": 124,
+    "difficulty": [
+      4,
+      6,
+      9.5
+    ],
+    "constant": [
+      4.5,
+      6.5,
+      10.3
+    ],
+    "side": "conflict",
+    "pack": "CHUNITHM"
+  },
+  {
+    "id": "ikazuchi",
+    "en": "Ikazuchi",
+    "length": 148,
+    "difficulty": [
+      3,
+      7,
+      9.5
+    ],
+    "constant": [
+      3.5,
+      7.7,
+      10.4
+    ],
+    "side": "conflict",
+    "pack": "CHUNITHM"
+  },
+  {
+    "id": "worldvanquisher",
+    "en": "World Vanquisher",
+    "length": 161,
+    "difficulty": [
+      2,
+      5,
+      9.5
+    ],
+    "constant": [
+      2.5,
+      5.5,
+      10.6
+    ],
+    "side": "light",
+    "pack": "CHUNITHM"
+  },
+  {
+    "id": "dreadnought",
+    "en": "Dreadnought",
+    "length": 140,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4,
+      7.3,
+      9.7
+    ],
+    "side": "conflict",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "particlearts",
+    "en": "Particle Arts",
+    "length": 147,
+    "difficulty": [
+      3,
+      6,
+      8
+    ],
+    "constant": [
+      3.5,
+      6,
+      8.8
+    ],
+    "side": "conflict",
+    "pack": "Adverse Prelude"
+  },
+  {
+    "id": "vindication",
+    "en": "Vindication",
+    "length": 150,
+    "difficulty": [
+      4,
+      6,
+      9
+    ],
+    "constant": [
+      4,
+      6.5,
+      9.6
+    ],
+    "side": "light",
+    "pack": "Adverse Prelude"
+  },
+  {
+    "id": "heavensdoor",
+    "en": "Heavensdoor",
+    "length": 132,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4.5,
+      7.4,
+      10
+    ],
+    "side": "conflict",
+    "pack": "Adverse Prelude"
+  },
+  {
+    "id": "ringedgenesis",
+    "en": "Ringed Genesis",
+    "length": 134,
+    "difficulty": [
+      5,
+      8,
+      9.5
+    ],
+    "constant": [
+      5.5,
+      8.5,
+      10.7
+    ],
+    "side": "light",
+    "pack": "Adverse Prelude"
+  },
+  {
+    "id": "chelsea",
+    "en": "Chelsea",
+    "length": 127,
+    "difficulty": [
+      3,
+      6,
+      8
+    ],
+    "constant": [
+      3.5,
+      6,
+      8.6
+    ],
+    "side": "light",
+    "pack": "Sunset Radiance"
+  },
+  {
+    "id": "aiueoon",
+    "en": "AI[UE]OON",
+    "length": 139,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3.5,
+      6.5,
+      9.4
+    ],
+    "side": "light",
+    "pack": "Sunset Radiance"
+  },
+  {
+    "id": "melodyoflove",
+    "en": "A Wandering Melody of Love",
+    "length": 131,
+    "difficulty": [
+      3,
+      7,
+      9
+    ],
+    "constant": [
+      3.5,
+      7.3,
+      9.6
+    ],
+    "side": "light",
+    "pack": "Sunset Radiance"
+  },
+  {
+    "id": "tiemedowngently",
+    "en": "Tie me down gently",
+    "length": 135,
+    "difficulty": [
+      3,
+      5,
+      8
+    ],
+    "constant": [
+      3,
+      5.5,
+      8.4
+    ],
+    "side": "conflict",
+    "pack": "Sunset Radiance"
+  },
+  {
+    "id": "valhallazero",
+    "en": "Valhalla:0",
+    "length": 142,
+    "difficulty": [
+      4,
+      7,
+      9.5
+    ],
+    "constant": [
+      4.5,
+      7.5,
+      10.5
+    ],
+    "side": "conflict",
+    "pack": "Sunset Radiance"
+  },
+  {
+    "id": "mirzam",
+    "en": "Mirzam",
+    "length": 147,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4,
+      7.3,
+      9.9
+    ],
+    "side": "conflict",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "diode",
+    "en": "Diode",
+    "length": 138,
+    "difficulty": [
+      2,
+      5,
+      8
+    ],
+    "constant": [
+      2.5,
+      5.5,
+      8.2
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "freefall",
+    "en": "FREEF4LL",
+    "length": 148,
+    "difficulty": [
+      4,
+      7,
+      8
+    ],
+    "constant": [
+      4,
+      7,
+      8.7
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "gloryroad",
+    "en": "GLORY : ROAD",
+    "length": 142,
+    "difficulty": [
+      4,
+      7,
+      9.5
+    ],
+    "constant": [
+      5.4,
+      7.4,
+      10.5
+    ],
+    "side": "light",
+    "pack": "Crimson Solace"
+  },
+  {
+    "id": "monochromeprincess",
+    "en": "Monochrome Princess",
+    "length": 137,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4.5,
+      7.4,
+      9.7
+    ],
+    "side": "conflict",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "heavenlycaress",
+    "en": "Heavenly caress",
+    "length": 133,
+    "difficulty": [
+      3,
+      7,
+      9
+    ],
+    "constant": [
+      3.5,
+      7.5,
+      9.6
+    ],
+    "side": "light",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "senkyou",
+    "en": "Senkyou",
+    "length": 149,
+    "difficulty": [
+      3,
+      5,
+      8
+    ],
+    "constant": [
+      3,
+      5.5,
+      8.8
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "filament",
+    "en": "Filament",
+    "length": 143,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4.5,
+      7.4,
+      9.7
+    ],
+    "side": "light",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "avantraze",
+    "en": "Avant Raze",
+    "length": 133,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3.5,
+      6.5,
+      9.8
+    ],
+    "side": "conflict",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "battlenoone",
+    "en": "BATTLE NO.1",
+    "length": 120,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3.5,
+      6.5,
+      9.7
+    ],
+    "side": "conflict",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "laqryma",
+    "en": "La'qryma of the Wasteland",
+    "length": 143,
+    "difficulty": [
+      3,
+      6,
+      9
+    ],
+    "constant": [
+      3.5,
+      6.5,
+      9.2
+    ],
+    "side": "conflict",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "einherjar",
+    "en": "Einherjar Joker",
+    "length": 137,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4,
+      7,
+      9.9
+    ],
+    "side": "conflict",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "izana",
+    "en": "IZANA",
+    "length": 123,
+    "difficulty": [
+      5,
+      8,
+      9.5
+    ],
+    "constant": [
+      5,
+      8.3,
+      10.1
+    ],
+    "side": "light",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "saikyostronger",
+    "en": "SAIKYO STRONGER",
+    "length": 145,
+    "difficulty": [
+      5,
+      9,
+      10
+    ],
+    "constant": [
+      5.5,
+      9.3,
+      11
+    ],
+    "side": "conflict",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "worldexecuteme",
+    "en": "world.execute(me);",
+    "length": 151,
+    "difficulty": [
+      3,
+      5,
+      8
+    ],
+    "constant": [
+      3.5,
+      5.5,
+      8.4
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "blrink",
+    "en": "BLRINK",
+    "length": 163,
+    "difficulty": [
+      3,
+      7,
+      9
+    ],
+    "constant": [
+      3.5,
+      7.4,
+      9.7
+    ],
+    "side": "conflict",
+    "pack": "Adverse Prelude"
+  },
+  {
+    "id": "oblivia",
+    "en": "Oblivia",
+    "length": 148,
+    "difficulty": [
+      3,
+      5,
+      8
+    ],
+    "constant": [
+      3.5,
+      5.0,
+      8.4
+    ],
+    "side": "light",
+    "pack": "Arcaea"
+  },
+  {
+    "id": "amygdata",
+    "en": "amygdata",
+    "length": 160,
+    "difficulty": [
+      4,
+      7,
+      9
+    ],
+    "constant": [
+      4.0,
+      7.1,
+      9.6
+    ],
+    "side": "conflict",
+    "pack": "Memory Archive"
+  },
+  {
+    "id": "corpssansorganes",
+    "en": "corps-sans-organes",
+    "length": 155,
+    "difficulty": [
+      4,
+      7,
+      9.5
+    ],
+    "constant": [
+      4.5,
+      7.3,
+      10.6
+    ],
+    "side": "conflict",
+    "pack": "Ambivalent Vision"
   }
-}
+]

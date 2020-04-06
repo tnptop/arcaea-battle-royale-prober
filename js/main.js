@@ -528,12 +528,12 @@ searchSong = (query, callback) => {
  * @param item: an object represents selected song
  */
 selectSong = (event, item) => {
-  const { duration, baseRoundDuration } = songinfo[item.value]
+  const { length } = songinfo[item.value]
   const roundNumber = Number($('#round-number').html())
-  let roundDuration = baseRoundDuration
+  let roundDuration = Math.ceil(length * 1.5)
 
   // Song Base Duration
-  $('#duration').html(duration)
+  $('#duration').html(convertSecondsToMinuteDisplay(length))
 
   // Round Duration
   if (roundNumber === 1) roundDuration += 180 // 3 minutes

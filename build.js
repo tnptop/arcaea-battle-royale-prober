@@ -1,7 +1,12 @@
 'use strict'
 
 const fs = require('fs')
-const songInfoData = require('./js/songdata')
+const songdata = require('./js/songdata')
+
+const songInfoData = songdata.reduce((sid, song) => {
+  return Object.assign({}, sid, { [song.id]: song })
+}, {})
+
 
 // create songinfo.js
 fs.writeFileSync(
