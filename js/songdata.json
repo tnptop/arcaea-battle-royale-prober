@@ -2634,5 +2634,115 @@
     ],
     "side": "conflict",
     "pack": "Ambivalent Vision"
+  },
+  {
+    "id": "equilibrium",
+    "en": "Equilibrium",
+    "length": 137
+  },
+  {
+    "id": "antagonism",
+    "en": "Antagonism",
+    "length": 139
+  },
+  {
+    "id": "lostdesire",
+    "en": "Lost Desire",
+    "length": 158
+  },
+  {
+    "id": "dantalion",
+    "en": "Dantalion",
+    "length": 152
+  },
+  {
+    "id": "ifi",
+    "en": "#1f1e33",
+    "length": 163
+  },
+  {
+    "id": "tempestissimo",
+    "en": "Tempestissimo",
+    "length": 137
+  },
+  {
+    "id": "arcahv",
+    "en": "Arcahv",
+    "length": 165
+  },
+  {
+    "id": "altale",
+    "en": "Altale",
+    "length": 152
+  },
+  {
+    "id": "givemeanightmare",
+    "en": "Give Me a Nightmare",
+    "length": 156
+  },
+  {
+    "id": "blacklotus",
+    "en": "Black Lotus",
+    "length": 115
+  },
+  {
+    "id": "gekka",
+    "en": "Gekka (Short Version)",
+    "length": 164
+  },
+  {
+    "id": "vividtheory",
+    "en": "Vivid Theory",
+    "length": 148
+  },
+  {
+    "id": "onefr",
+    "en": "1F√",
+    "length": 140
+  },
+  {
+    "id": "scarletcage",
+    "en": "Scarlet Cage",
+    "length": 158
+  },
+  {
+    "id": "feelssoright",
+    "en": "Feels So Right feat. Renko",
+    "length": 135
+  },
+  {
+    "id": "faintlight",
+    "en": "Faint Light (Arcaea Edit)",
+    "length": 157
+  },
+  {
+    "id": "teriqma",
+    "en": "Teriqma",
+    "length": 147
+  },
+  {
+    "id": "mahoroba",
+    "en": "MAHOROBA",
+    "length": 122
+  },
+  {
+    "id": "badtek",
+    "en": "BADTEK",
+    "length": 117
+  },
+  {
+    "id": "maliciousmischance",
+    "en": "Malicious Mischance",
+    "length": 138
+  },
+  {
+    "id": "gothiveofra",
+    "en": "Got hive of Ra",
+    "length": 126
+  },
+  {
+    "id": "buchigireberserker",
+    "en": "BUCHiGiRE Berserker",
+    "length": 148
   }
 ]
