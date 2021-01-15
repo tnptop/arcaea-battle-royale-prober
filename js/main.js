@@ -531,10 +531,6 @@ selectSong = (event, item) => {
 
   // Song Base Duration
   $('#duration').html(convertSecondsToMinuteDisplay(time))
-
-  // enable the start button
-  // place here to make sure the the song really is selected
-  $('#round-btn').attr('disabled', false)
 }
 
 setRoundDuration = (event) => {
@@ -546,10 +542,18 @@ setRoundDuration = (event) => {
  *
  * @param event: event from the component
  */
+let isSongEmpty = true
+let isRoundTimeEmpty = true
 toggleRoundButton = (event) => {
   // zero length = empty search box => ability to start round not allowed
   // otherwise allow the round to be started
-  $('#round-btn').attr('disabled', event.target.value.length !== 0)
+  if (event.target.id === 'song') {
+    isSongEmpty = event.target.value.length === 0
+  }
+  if (event.target.id === 'round-time') {
+    isRoundTimeEmpty = event.target.value.length === 0
+  }
+  $('#round-btn').attr('disabled', isSongEmpty || isRoundTimeEmpty)
 }
 
 // Set up autocomplete on element with .song-auto-complete class
@@ -563,6 +567,7 @@ $('.song-auto-complete').autoComplete({
 $('.song-auto-complete').on('autocomplete.select', selectSong)
 $('.song-auto-complete').on('change', toggleRoundButton)
 $('#round-time').on('change', setRoundDuration)
+$('#round-time').on('change', toggleRoundButton)
 
 /**
  * Add event listener to allow pressing enter to start a round
