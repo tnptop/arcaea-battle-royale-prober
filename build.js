@@ -3,10 +3,11 @@
 const fs = require('fs')
 const songdata = require('./js/songdata')
 
-const songInfoData = songdata.reduce((sid, song) => {
-  return Object.assign({}, sid, { [song.id]: song })
+const songInfoData = songdata.songs.reduce((songInfo, song) => {
+  const { sid } = song
+  return Object.assign({}, songInfo, { [sid]: song })
 }, {})
-
+const songKeys = songdata.songs.map(({ sid, name_en }) => [sid, name_en])
 
 // create songinfo.js
 fs.writeFileSync(
@@ -16,7 +17,6 @@ fs.writeFileSync(
 )
 
 // create songkeys.js
-const songKeys = Object.entries(songInfoData).map(([key, value]) => [key, value.en])
 fs.writeFileSync(
   './js/songkeys.js',
   `songkeys=${JSON.stringify(songKeys)}`,

@@ -5,6 +5,15 @@
 // songkeys from js/songkeys.js
 
 /**
+ * Constants
+ */
+const ARCAPI_APP_VERSION = '3.4.1c'
+const ARCAPI_HOST = 'https://arcapi.lowiro.com'
+const ARCAPI_VERSION = 13
+const ARCAPI_VERSION_CODENAME = 'latte'
+const ARCAPI_ACCESS_TOKEN = 'E7MBxCUdkFdUD74B/vr+0d1toJA0rMCgWHgMqoE6/Zs='
+
+/**
  * Shared variables
  */
 let players = []
@@ -105,15 +114,9 @@ init = async () => {
   )
   // probe 2 players simultaneously as the server has only 2 processes
   let start = new Date()
-  let queues = []
-  for (let i = 0; i < players.length; i += 2) {
-    let queue = [players[i]]
-    if (players[i + 1] !== undefined) queue.push(players[i + 1])
-    queues.push(queue)
-  }
-  for (let queue of queues) {
+  for (let player of players) {
     try {
-      await Promise.all(queue.map((player) => probe(player)))
+      await probe(player)
     } catch (error) {
       $.notify({
         message: error.message
@@ -170,15 +173,9 @@ startRound = async () => {
       clearInterval(handle)
       // probe for every players' score right after the round ends
       let start = new Date()
-      let queues = []
-      for (let i = 0; i < players.length; i += 2) {
-        let queue = [players[i]]
-        if (players[i + 1] !== undefined) queue.push(players[i + 1])
-        queues.push(queue)
-      }
-      for (let queue of queues) {
+      for (let player of players) {
         try {
-          await Promise.all(queue.map((player) => probe(player)))
+          await probe(player)
         } catch (error) {
           $.notify({
             message: error.message
@@ -190,7 +187,7 @@ startRound = async () => {
         }
       }
       let end = new Date()
-      console.log(`Total load time for ${players} players:`, (end - start) / 1000)
+      console.log(`Total load time for ${players.length} players:`, (end - start) / 1000)
       roundButton.attr('disabled', false)
     }
   }, 1000)
@@ -226,6 +223,7 @@ endRound = () => {
 
   // clear song input
   $('#song').val('')
+  $('#round-time').val('')
   $('#duration').html('')
   $('#round-duration').html('')
   $('#round-timestamp').html('')
@@ -340,6 +338,21 @@ rankPlayers = () => {
 }
 
 /**
+ * Create a new instance of URLSearchParams with given parameters
+ *
+ * @param {object} params - an object containing key-value pairs to be set in
+ *    URLSearchParams
+ * @returns {module:url.URLSearchParams} - the new instance of URLSearchParams
+ */
+setURLSearchParams = (params) => {
+  const urlSearchParams = new URLSearchParams()
+  Object.entries(params).forEach(([paramName, paramValue]) => {
+    urlSearchParams.append(paramName, String(paramValue))
+  })
+
+  return urlSearchParams
+}
+/**
  * Score probing
  */
 
@@ -349,67 +362,43 @@ rankPlayers = () => {
  * @param playerId: the 9-digit player ID
  * @returns {Promise<void>}: resolve if successfully probed, reject with error otherwise
  */
-probe = (playerId) => {
-  return new Promise((resolve, reject) => {
-    let error = {}
-    const ws = new WebSocket('wss://arc.estertion.win:616')
-    ws.binaryType = 'arraybuffer'
-    let start = 0, end = 0
+probe = async (playerId) => {
+  const headers = {
+    'Accept-Encoding': 'identity',
+    AppVersion: ARCAPI_APP_VERSION,
+    Connection: 'Keep-Alive',
+    'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+    DeviceId: 'InwZa007',
+    Host: 'arcapi.lowiro.com',
+    'User-Agent': 'Grievous Lady (Linux; U; Android 2.3.3; BotArcAPI)',
+    Authorization: `Bearer ${ARCAPI_ACCESS_TOKEN}`
+  }
+  const baseUrl = `${ARCAPI_HOST}/${ARCAPI_VERSION_CODENAME}/${ARCAPI_VERSION}`
+  const addUrl = `${baseUrl}/friend/me/add`
+  const delUrl = `${baseUrl}/friend/me/delete`
 
-    // use declaration syntax for named function
-    ws.onopen = function open () {
-      console.log('querying the data of:', playerId)
-      start = new Date()
-      ws.send(String(playerId)) // there exist ID with leading zero, thus stringify it
-    }
+  let addParams = {
+    method: 'post',
+    headers,
+    body: setURLSearchParams({ friend_code: String(playerId) })
+  }
+  let addResponse = await (await fetch(addUrl, addParams)).json()
 
-    ws.onclose = function close () {
-      end = new Date()
-      console.log(playerId, 'done, time elapsed:', (end - start) / 1000)
-      // wait until the connection close ensure the reliability of requesting multiple sockets
-      return error.message ? reject(error) : resolve()
-    }
+  if (!addResponse.success) {
+    throw { message: 'Cannot probe due to server error. Please contact @tgcrusade#9999.' }
+  }
+  let detail = addResponse.value.friends[0]
 
-    ws.onerror = function error (event) {
-      currentRoundScore[playerId] = {}
-      console.log(playerId, 'error, time elapsed:', (end - start) / 1000)
-      // in a case that connection to the server failed
-      return reject({ message: 'Cannot connect to server. Please try again.' })
-    }
+  let delParams = {
+    method: 'post',
+    headers,
+    body: setURLSearchParams({ friend_id: detail.user_id })
+  }
+  await fetch(delUrl, delParams)
 
-    ws.onmessage = function incoming ({data}) {
-      if (data.byteLength) {
-        let message = BrotliDecompress(new Uint8Array(data))
-        message = String.fromCharCode.apply(String, message)
-        message = JSON.parse(decodeURIComponent(escape(message)))
-        let playerInfo = {}
-        console.log('message\n', message)
-
-        if (message.cmd === 'userinfo') {
-          if (message.data) {
-            playerInfo = getLatestPlay(playerId, message.data, true)
-            currentRoundScore[playerId] = playerInfo
-            updatePlayerRow(playerInfo)
-            ws.close() // force close the socket session since the data needed is retrieved
-          }
-        }
-      } else if (data === 'invalid id') {
-        error.restart = true
-        error.message = `The ID ${playerId} is invalid.`
-        console.log(`The ID ${playerId} is invalid.`)
-      } else if (data === 'error,add') {
-        let player = currentRoundScore[playerId] ? $(`tr#${playerId} th`)[0].childNodes[0].data : playerId
-        let playerInfo = getLatestPlay(player, {
-          name: player,
-          recent_score: [{}]
-        }, false)
-        currentRoundScore[player] = {}
-        console.log(`Cannot load player ${player} info.`)
-        error.message = `Cannot load player ${player} info. Please try again.`
-        updatePlayerRow(playerInfo)
-      }
-    }
-  })
+  let playerInfo = getLatestPlay(playerId, detail, true)
+  currentRoundScore[playerId] = playerInfo
+  updatePlayerRow(playerInfo)
 }
 
 /**
@@ -440,11 +429,14 @@ probeAsync = async (playerId) => {
  * @returns {{score: number, name: *, rawScore: number, farCount: number, leadingScore: string, title: string, timestamp}}
  */
 getLatestPlay = (playerId, data, flag) => {
+  const diff_map = ['PST', 'PRS', 'FTR', 'BYN']
   const {
     song_id,
     score,
+    difficulty,
     near_count,
     miss_count,
+    perfect_count,
     shiny_perfect_count,
     time_played
   } = data.recent_score[0]
@@ -452,12 +444,13 @@ getLatestPlay = (playerId, data, flag) => {
   return {
     id: playerId,
     name: data.name,
-    title: flag ? songinfo[song_id].en : '----',
+    title: flag ? songinfo[song_id].name_en : '----',
     score: flag ? score : '----',
+    difficulty: flag ? diff_map[difficulty] : '-- --',
     leadingScore: flag ? String(score).padStart(8, '0').slice(0, 3) : '----',
     rawScore: flag ? score - shiny_perfect_count : '----',
-    farCount: flag ? near_count + (miss_count * 2) : '----',
-    rawFarCount: flag ? `F${near_count}, L${miss_count}` : '----',
+    perfectCount: flag ? `P${perfect_count} (${shiny_perfect_count})` : '----',
+    farCount: flag ? `F${near_count}, L${miss_count}` : '----',
     timestamp: flag ? (new Date(time_played).toLocaleString('en-US')).replace(' ', '<br>') : '----'
   }
 }
@@ -473,8 +466,9 @@ generatePlayerRow = (playerInfo) => {
     <tr class="track-not-lost" id="${playerInfo.id}">
       <th scope="row">${playerInfo.name}<br>(${playerInfo.id})</th>
       <td>${playerInfo.title}</td>
+      <td>${playerInfo.difficulty}</td>
       <td><span class="score">${playerInfo.score}</span><br>(${playerInfo.rawScore})</td>
-      <td><span class="far-count">${playerInfo.farCount}</span><br>(${playerInfo.rawFarCount})</td>
+      <td><span class="statistics">${playerInfo.perfectCount}</span><br>${playerInfo.farCount}</td>
       <td>${playerInfo.timestamp}</td>
       <td><button class="btn btn-primary" type="button" id="dq-${playerInfo.id}" onclick="disqualifyPlayer('${playerInfo.id}')">DQ</button></td>
       <td><button class="btn btn-primary" type="button" id="sync-${playerInfo.id}" onclick="probeAsync('${playerInfo.id}')">↻</button></td>
@@ -528,23 +522,23 @@ searchSong = (query, callback) => {
  * @param item: an object represents selected song
  */
 selectSong = (event, item) => {
-  const { length } = songinfo[item.value]
+  const { time } = songinfo[item.value]
+  /*
   const roundNumber = Number($('#round-number').html())
   let roundDuration = Math.ceil(length * 1.5)
 
-  // Song Base Duration
-  $('#duration').html(convertSecondsToMinuteDisplay(length))
+   */
 
-  // Round Duration
-  if (roundNumber === 1) roundDuration += 180 // 3 minutes
-  else if (roundNumber >= 2 && roundNumber <= 4) roundDuration += 150 // 2:30 minutes
-  else if (roundNumber >= 5 && roundNumber <= 7) roundDuration += 120 // 2 minutes
-  else if (roundNumber >= 8) roundDuration += 90 // 1:30 minutes
-  $('#round-duration').html(convertSecondsToMinuteDisplay(roundDuration))
+  // Song Base Duration
+  $('#duration').html(convertSecondsToMinuteDisplay(time))
 
   // enable the start button
   // place here to make sure the the song really is selected
   $('#round-btn').attr('disabled', false)
+}
+
+setRoundDuration = (event) => {
+  $('#round-duration').html(convertSecondsToMinuteDisplay(event.target.value))
 }
 
 /**
@@ -568,6 +562,7 @@ $('.song-auto-complete').autoComplete({
 })
 $('.song-auto-complete').on('autocomplete.select', selectSong)
 $('.song-auto-complete').on('change', toggleRoundButton)
+$('#round-time').on('change', setRoundDuration)
 
 /**
  * Add event listener to allow pressing enter to start a round
