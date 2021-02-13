@@ -7,11 +7,11 @@
 /**
  * Constants
  */
-const ARCAPI_APP_VERSION = '3.4.1c'
+const ARCAPI_APP_VERSION = '3.5.1c'
 const ARCAPI_HOST = 'https://arcapi.lowiro.com'
 const ARCAPI_VERSION = 13
 const ARCAPI_VERSION_CODENAME = 'latte'
-const ARCAPI_ACCESS_TOKEN = 'E7MBxCUdkFdUD74B/vr+0d1toJA0rMCgWHgMqoE6/Zs='
+const ARCAPI_ACCESS_TOKEN = '4A6tPD5n0PyBbTB5pLmGABHzcRRAh5VE6/cotWMyMZE='
 
 /**
  * Shared variables
